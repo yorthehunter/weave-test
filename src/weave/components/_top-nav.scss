@@ -1,0 +1,69 @@
+$nav-bg:     $colored-bg--neutral;
+$nav-border: 1px solid $border--neutral;
+
+$nav-link:          $text--primary;
+$nav-link--hover:   $text--primary;
+$nav-link--current: color(mint);
+
+.weave-top-nav {
+  background:    $nav-bg;
+  border-bottom: $nav-border;
+  @extend %type-md, %flex-container, %flex-content-center !optional;
+  margin-bottom: -1px;
+
+  &--logo {
+  }
+
+  &--divider {
+    width: 1px;
+    margin-top:    2rem;
+    margin-bottom: 2rem;
+    border-right: $nav-border;
+  }
+
+  &--site-nav {
+    @extend %flex-container !optional;
+  }
+
+  &--secondary-nav {
+    @extend %flex-container !optional;
+    margin-left: auto;
+  }
+}
+
+a.weave-nav-link,
+.weave-nav-link {
+  padding: space(lg) space(md);
+  position: relative;
+  color: $nav-link;
+  @extend %type-weight--default !optional;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &:hover {
+    color: $nav-link--hover;
+  }
+
+  &.is-current {
+    @extend %type-weight--medium !optional;
+    color: $nav-link--current;
+  }
+
+  &.has-dropdown {
+    .weave-dropdown-menu {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &::after {
+      content: "▾";
+    }
+
+    &:hover {
+      .weave-dropdown-menu {
+        opacity: 1.0;
+        pointer-events: auto;
+      }
+    }
+  }
+}

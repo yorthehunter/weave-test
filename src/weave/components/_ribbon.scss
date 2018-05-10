@@ -1,0 +1,101 @@
+// The ribbon draws attention to an element using a visual flair.
+// Use ribbons to describe important modifications or changes to components.
+$ribbon-overlap: space(xs);
+$ribbon-padding--sm: 0 space(xs);
+$ribbon-padding--md: space(xs) space(sm);
+$ribbon-padding--lg: space(sm) space(md);
+$ribbon-fold-bg-color: color(black-75);
+
+// This is a small visual addition to simulate a fold in the ribbon.
+%weave-fold {
+  background-color: $ribbon-fold-bg-color;
+  clip-path: polygon(0% 100%, 100% 0, 100% 100%);
+  height: $ribbon-overlap;
+  position: absolute;
+  width: $ribbon-overlap;
+}
+
+%weave-ribbon,
+.weave-ribbon {
+  // Default color is purple (grape)
+  background-color: color(grape);
+  color: color(white);
+  display: inline-flex;
+  position: relative;
+
+  &--sm {
+    @include type('xxs');
+    padding: $ribbon-padding--sm;
+  }
+
+  &--md {
+    @include type('xs');
+    padding: $ribbon-padding--md;
+  }
+
+  &--lg {
+    @include type('sm');
+    padding: $ribbon-padding--lg;
+  }
+
+  &--overlay {
+    // Positions the ribbon over a parent. Use with the modifiers below;
+    @extend %elevated--1;
+    position: absolute;
+  }
+
+  &--upper-left {
+    border-top-left-radius: $rounded--default;
+    left: -$ribbon-overlap;
+    top: -$ribbon-overlap;
+
+    &::after {
+      @extend %weave-fold;
+      bottom: -$ribbon-overlap;
+      content: '';
+      left: 0;
+      transform: rotate(270deg);
+    }
+  }
+
+  &--upper-right {
+    border-top-right-radius: $rounded--default;
+    right: -$ribbon-overlap;
+    top: -$ribbon-overlap;
+
+    &::after {
+      @extend %weave-fold;
+      bottom: -$ribbon-overlap;
+      content: '';
+      right: 0;
+      transform: rotate(180deg);
+    }
+  }
+
+  &--lower-left {
+    border-bottom-left-radius: $rounded--default;
+    bottom: -$ribbon-overlap;
+    left: -$ribbon-overlap;
+
+    &::after {
+      @extend %weave-fold;
+      content: '';
+      left: 0;
+      top: -$ribbon-overlap;
+    }
+  }
+
+  &--lower-right {
+    border-bottom-right-radius: $rounded--default;
+    bottom: -$ribbon-overlap;
+    right: -$ribbon-overlap;
+
+    &::after {
+      @extend %weave-fold;
+      content: '';
+      right: 0;
+      top: -$ribbon-overlap;
+      transform: rotate(90deg);
+    }
+  }
+}

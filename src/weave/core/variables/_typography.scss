@@ -1,0 +1,47 @@
+// Typography settings
+// These values set up some defaults for type, like sizes and colors
+
+:root {
+  --font-weight-bold: bold;
+  --font-weight-light: normal;
+  --font-weight-medium: 500;
+
+  --type-size-f8: 5rem;
+  --type-size-f7: 3rem;
+  --type-size-f6: 2.5rem;
+  --type-size-f5: 2rem;
+  --type-size-f4: 1.5rem;
+  --type-size-f3: 1rem;
+  --type-size-f2: .875rem;
+  --type-size-f1: .75rem;
+  --type-size-f0: .625rem;
+
+  --body-line-height-f8: 7.5rem;
+  --body-line-height-f7: 4.5rem;
+  --body-line-height-f6: 3.5rem;
+  --body-line-height-f5: 3rem;
+  --body-line-height-f4: 2.5rem;
+  --body-line-height-f3: 1.5rem;
+  --body-line-height-f2: 1.5rem;
+  --body-line-height-f1: 1.5rem;
+  --body-line-height-f0: 1.5rem;
+
+  --compact-line-height-f8: 5rem;
+  --compact-line-height-f7: 3rem;
+  --compact-line-height-f6: 3rem;
+  --compact-line-height-f5: 2rem;
+  --compact-line-height-f4: 2rem;
+  --compact-line-height-f3: 1rem;
+  --compact-line-height-f2: 1rem;
+  --compact-line-height-f1: 1rem;
+  --compact-line-height-f0: 1rem;
+}
+
+// Defaults
+:root {
+  --font-face-default: 'Whitney SSm';
+  --font-family-default: var(--font-face-default) helvetica, sans-serif;
+  --font-size-pixel-base: 16px;
+  --font-weight-default: var(--font-weight-medium);
+  --type-size-default: var(--type-size-md);
+}

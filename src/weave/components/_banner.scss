@@ -1,0 +1,48 @@
+$banner-bg--error:   $colored-bg--error;
+$banner-bg--warning: $colored-bg--warning;
+$banner-bg--info:    $colored-bg--info;
+$banner-bg--success: $colored-bg--success;
+
+$banner-text--error:   $text-on-dark;
+$banner-text--warning: $text-on-light;
+$banner-text--info:    $text-on-light;
+$banner-text--success: $text-on-dark;
+
+.weave-banner {
+  padding: space(md) 0 space(md) space(lg);
+  @include type(md, true);
+  @extend %elevated--1, %flex-container, %type-weight--light !optional;
+
+  &__message {
+    flex-grow: 1;
+  }
+
+  &__close {
+    padding-left:  space(md);
+    padding-right: space(md);
+
+    &::after {
+      content: 'X';
+    }
+  }
+
+  &--error {
+    background-color: $banner-bg--error;
+    color: $banner-text--error;
+  }
+
+  &--warning {
+    background-color: $banner-bg--warning;
+    color: $banner-text--warning;
+  }
+
+  &--info {
+    background-color: $banner-bg--info;
+    color: $banner-text--info;
+  }
+
+  &--success {
+    background-color: $banner-bg--success;
+    color: $banner-text--success;
+  }
+}

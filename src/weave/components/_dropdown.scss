@@ -1,0 +1,12 @@
+.weave-dropdown {
+  @extend %dropdown--default !optional;
+
+  // For legacy apps
+  pointer-events: none;
+  opacity: 0;
+  // TODO: remove `_dropdown.scss` as soon as possible
+
+  &__item {
+    @extend %dropdown--default__item !optional;
+  }
+}

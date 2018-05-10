@@ -1,0 +1,36 @@
+$tag-bg--default: color(gray-light);
+
+$tag-max-height:   4rem;
+
+$tag--corners:      $rounded--pill;
+$tag-image-corners: $rounded--circle;
+
+.weave-tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: $tag--corners;
+  background-color: $tag-bg--default;
+  overflow: hidden;
+  max-height: $tag-max-height;
+  @extend %type-weight--base, %type-xs !optional;
+
+  &__image {
+    max-height: $tag-max-height;
+    border-radius: $tag-image-corners;
+    // When there's an image, it looks a little nicer to tighten the layout.
+    margin-right: -0.25rem;
+  }
+
+  &__message {
+    padding: space(sm) space(md);
+  }
+
+  // Temporary "close" icon/button until we establish an icon
+  &--dismissable {
+    &::after {
+      padding: 0 space(md) 0 0;
+      content: 'X';
+    }
+  }
+
+}

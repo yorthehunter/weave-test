@@ -1,0 +1,94 @@
+$selectable-input-size--md: 14px;
+$selectable-input-size--sm:  10px;
+
+%input-control-focus-state {
+  outline: none;
+  position: relative;
+
+  &::after {
+    content: '';
+    width: calc(100% + 14px);
+    height: calc(100% + 6px);
+    border-radius: $rounded--pill;
+    background-color: rgba(0,0,0,0.1);
+    outline: none;
+    position: absolute;
+    z-index: -1;
+    left: -6px;
+    top: -3px;
+  }
+}
+
+.weave-selectable-input_container {
+  @extend %flex-container, %flex-center !optional;
+  margin: 0 space(xl) space(md) 0;
+}
+
+.weave-checkbox,
+.weave-radio {
+  // Hides unstyled input but still allows it to be focused (important)
+  @extend %u-hidden-from-sight !optional;
+}
+
+.weave-checkbox + .weave-form__label,
+.weave-radio + .weave-form__label {
+  // Styles the form__label immediately following the input
+  @extend %flex-container, %flex-center, %type-sm !optional;
+  cursor: pointer;
+  color: $text--primary;
+
+  &:before {
+    content: '';
+    border: 2px solid $text--secondary;
+    position: relative;
+    @include transition(transform, border);
+  }
+}
+
+.weave-checkbox:focus + .weave-form__label,
+.weave-radio:focus + .weave-form__label {
+  // When the input is focused, apply a focus state to the label so it can be seen
+  @extend %input-control-focus-state;
+}
+
+.weave-radio--md + .weave-form__label,
+.weave-checkbox--md + .weave-form__label {
+  &:before {
+    margin-right: space(sm);
+    width: $selectable-input-size--md;
+    height: $selectable-input-size--md;
+  }
+}
+
+.weave-radio--sm + .weave-form__label,
+.weave-checkbox--sm + .weave-form__label {
+  @extend %type-xs !optional;
+
+  &:before {
+    margin-right: space(xs);
+    width: $selectable-input-size--sm;
+    height: $selectable-input-size--sm;
+  }
+}
+
+.weave-checkbox:checked + .weave-form__label:before {
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid $colored-accent;
+  border-bottom: 2px solid $colored-accent;
+  transform: scaleX(-1) rotate(55deg);
+  backface-visibility: hidden;
+  height: 5px;
+  top: -3px;
+}
+
+.weave-radio {
+  & + .weave-form__label:before {
+    border-radius: $rounded--circle;
+  }
+
+  &:checked + .weave-form__label:before {
+    background-color: color(mint);
+    border-color: color(mint);
+  }
+}

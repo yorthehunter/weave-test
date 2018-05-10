@@ -1,0 +1,19 @@
+// Layout settings
+// These values set up defaults for layout, like spacing for margins/padding
+
+:root {
+  --spacing-xxl: 4rem;
+  --spacing-xl: 2rem;
+  --spacing-lg: 1.5rem;
+  --spacing-md: 1rem;
+  --spacing-sm: .5rem;
+  --spacing-xs: .25rem;
+  --spacing-none: 0 !important;
+
+  --z-index-0: 0;
+  --z-index-1: 100;
+  --z-index-2: 200;
+  --z-index-3: 300;
+  --z-index-4: 400;
+  --z-index-5: 500;
+}

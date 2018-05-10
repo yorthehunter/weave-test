@@ -1,0 +1,135 @@
+// Resets inputs as needed. This is *not* included in the global reset so that browser
+// defaults can be used as a fallback.
+%input-reset {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  @include type(md, true);
+  border: 0;
+  padding: 0;
+  font-family: inherit;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+// This will append a dropdown arrow after the text of a <select> element
+%dropdown-indicator {
+  &::after {
+    content: "▾";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+}
+
+// .weave-form enables help-text, labels, character count, and disabled state
+// TODO: These styles should *probably* stand alone so that they can apply
+// outside of the .weave-form class.
+.weave-form {
+  @extend %type-weight--default !optional;
+  // Sets a standard border color for children to inherit
+  border-color: $rule--neutral;
+
+  &__label,
+  &__help-text {
+    color: $text--secondary;
+    @include type(xs);
+  }
+
+  &__help-text {
+    margin-top: 0.5rem;
+    @extend %flex-container !optional;
+
+    &__character-count {
+      // Forces a flex child (and subsequent flex children) to push itself to
+      // the right (like the old way of abusing floats)
+      margin-left: auto;
+      color: $text--secondary;
+    }
+  }
+
+  disabled,
+  .is-disabled {
+    opacity: $disabled-opacity;
+    cursor: not-allowed;
+  }
+}
+
+.weave-form-element {
+  margin-bottom: space(xl);
+  @extend %flex-container, %flex-vertical;
+  // Ensures that if this element fills out the space available (when necessary)
+  flex-grow: 1;
+  border-color: inherit;
+
+  // This removes the duplication of margins when nesting form-element
+  & > & {
+    margin-bottom: 0;
+  }
+
+  &--inline {
+    @extend %flex-container;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  &.has-error {
+    .weave-form__help-text,
+    .weave-form__label {
+      color: $colored-text--error;
+    }
+
+    .weave-text-input {
+      border-bottom: 1px solid;
+      border-color: $colored-bg--error;
+      box-shadow:    0 1px 0 $colored-bg--error;
+
+      &:focus {
+        border-bottom: 1px solid;
+        border-color: $rule--success;
+        box-shadow:    0 1px 0 $rule--success;
+      }
+    }
+  }
+}
+
+// This class styles for both single line <input type="text"> inputs as well as
+// multi-line <textarea> inputs.
+.weave-text-input {
+  @extend %input-reset;
+  border-bottom: 1px solid $rule--neutral;
+  margin-bottom:  -1px;
+  color: $text--secondary;
+  @include transition(box-shadow);
+  display: block;
+  width: 100%;
+
+  // Allows form inputs to be fully bordered
+  &--contained {
+    border: 1px solid;
+    border-color: currentColor;
+    padding-left: space(xs);
+    padding-right: space(xs);
+  }
+
+  &:focus {
+    color: $text--primary;
+    outline: none;
+    border-bottom: 1px solid;
+    border-color: $rule--success;
+    box-shadow:    0 1px 0 $rule--success;
+  }
+}
+
+// Wrap around a <select> to show the arrow indicator
+.weave-select_container {
+  position: relative;
+  @extend %dropdown-indicator;
+
+  & > select {
+    // Attempts to fix a problem with Firefox that doesn't allow <select> height to be controlled by line height
+    line-height: normal;
+    padding: 1rem 0 calc(1rem - 1px);
+  }
+}

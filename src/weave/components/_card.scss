@@ -1,0 +1,60 @@
+// Cards
+//
+// Cards are contained chunks of content that visually separate content and help
+// convey the individual interactivity that a chunk of content might have.
+//
+// Example:
+// <article class="weave-card">...</article>
+
+.weave-card {
+  @extend %elevated--1 !optional;
+  border-radius: $rounded--default;
+  background-color: white;
+
+  // .weave-card--hoverable gives the card a higher "elevation" on hover
+  &--hoverable {
+    @include transition(box-shadow);
+
+    &:hover,
+    &:focus {
+      @extend %elevated--2 !optional;
+    }
+  }
+
+  &__separator {
+    border-bottom: 1px solid color(gray-light);
+  }
+
+  // Use `.weave-card__panel` to separate sections of the card using bg color
+  &__panel {
+    box-sizing: border-box;
+    padding: space(sm);
+    background-color: color(gray-lightest);
+
+    // `.weave-card__panel--inline` applies flex to the panel, if needed
+    &--inline {
+      @extend %flex-container !optional;
+    }
+
+    &--xs {
+      @extend %type-xs !optional;
+    }
+  }
+
+  & > &__panel:first-child {
+    border-top-left-radius: $rounded--default;
+    border-top-right-radius: $rounded--default;
+  }
+
+
+  & > &__panel:last-child {
+    border-bottom-left-radius: $rounded--default;
+    border-bottom-right-radius: $rounded--default;
+  }
+
+  // When 2 or more panels are butted up against each other, remove
+  // the padding from all but the top one to have a cleaner UI.
+  &__panel + &__panel {
+    padding-top: 0;
+  }
+}

@@ -1,0 +1,30 @@
+// Decoration / UI settings
+//
+
+:root {
+  --elevated-0: 0 0 0 rgba(0,0,0,0.0),
+  --elevated-1: (0 2px 5px rgba(0,0,0,0.16), 0 2px 10px rgba(0,0,0,0.12));
+  --elevated-2: (0 8px 17px rgba(0,0,0,0.16), 0 6px 20px rgba(0,0,0,0.19));
+  --elevated-3: (0 12px 15px rgba(0,0,0,0.24), 0 17px 50px rgba(0,0,0,0.19));
+  --elevated-4: (0 16px 28px rgba(0,0,0,0.22), 0 25px 55px rgba(0,0,0,0.21));
+  --elevated-5: (0 27px 24px rgba(0,0,0,0.20), 0 40px 77px rgba(0,0,0,0.22));
+}
+
+:root {
+  --border-radius-xs: 1px;
+  --border-radius-sm: 2px;
+  --border-radius-md: 3px;
+  --border-radius-lg: 4px;
+  --border-radius-xl: 8px;
+  --border-radius-pill: 100vw;
+  --border-radius-circle: 100%;
+}
+
+:root {
+  --disabled-opacity: .3;
+}
+
+// Defaults
+:root {
+  --border-radius-default: var(--border-radius-sm);
+}

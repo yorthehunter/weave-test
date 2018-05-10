@@ -1,0 +1,61 @@
+$tooltip-padding--default: space(sm);
+$tooltip-bg: color(black-75);
+$tooltip-type-color: color(white);
+
+// General tooltip styling
+%weave-tooltip,
+.weave-tooltip {
+  display: table; // Fixes width of element
+  visibility: hidden;
+  @extend %type-xs !optional;
+  @include transition-once(transform, 0.1s, $transition-easing--complex);
+  z-index: map-deep-get($elevation-map, 5, index); // highest default elevation
+  padding: $tooltip-padding--default;
+  border-radius: $rounded--default;
+  background-color: $tooltip-bg;
+  color: $tooltip-type-color;
+  text-shadow: 0 1px 0 color(black);
+  white-space: nowrap;
+  pointer-events: none; // Unclickable
+
+  &.is-visible {
+    visibility: visible;
+  }
+}
+
+// `.weave-has-tooltip` generates a tooltip using pseudo elements & a data-tooltip
+.weave-has-tooltip {
+  position: relative;
+
+  &:after {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    content: attr(data-tooltip); // Pulls content from `data-tooltip` attribute of element
+    transform: translateX(-50%) translateY(0);
+    @extend %weave-tooltip !optional;
+  }
+
+  &:hover:after,
+  &:focus:after {
+    visibility: visible;
+    transform: translateX(-50%) translateY(-0.25rem); // Adds movement
+  }
+
+  // Adjusts positioning of tooltip to place it below content
+  &--below {
+    &:after {
+      top: 100%;
+    }
+
+    &:hover:after,
+    &:focus:after {
+      transform: translateX(-50%) translateY(0.25rem);
+    }
+  }
+}
+
+// Use hover-indication when you want users to know that text is hoverable
+.weave-has-tooltip-indication {
+  border-bottom: 1px dotted;
+}

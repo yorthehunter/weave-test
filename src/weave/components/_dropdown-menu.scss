@@ -1,0 +1,42 @@
+$dropdown--bg: color(white);
+
+%dropdown-menu--default {
+  // Dropdown reset values (especially important when using <ol> or <ul>)
+  list-style: none;
+  padding: 0;
+  white-space: nowrap;
+
+  position: absolute;
+  min-width: 12rem;
+  margin-top: 0.5rem;
+  background-color: $dropdown--bg;
+  border-radius:    $rounded--default;
+  @extend %elevated--1, %type-md !optional;
+  @include transition(opacity);
+}
+
+%dropdown-menu--default__item {
+  @extend %type-weight--default !optional;
+  padding: space(sm) space(md);
+  display: block;
+
+  &:hover {
+    background-color: color(gray-lightest);
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.weave-dropdown-menu {
+  @extend %dropdown-menu--default !optional;
+
+  &.is-hidden {
+    display: none;
+  }
+
+  &__item {
+    @extend %dropdown-menu--default__item !optional;
+  }
+}

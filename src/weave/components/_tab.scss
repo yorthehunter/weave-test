@@ -1,0 +1,48 @@
+$tabs--border: 1px solid $border--neutral;
+$tab-label--outset: space(md) space(md);
+$tab-label-border--highlight: $colored-accent;
+$tab-label-border--highlight-size: 3px;
+
+.weave-tabs {
+  @extend %flex-container !optional;
+
+  &--centered {
+    @extend %flex-content-center !optional;
+  }
+}
+
+.weave-tabs__label {
+  @extend %type-weight--default, %type-md !optional;
+
+  text-transform: capitalize;
+  cursor: pointer;
+  padding: $tab-label--outset;
+  color: $text--secondary;
+
+  &:hover {
+    color: $text--primary;
+  }
+
+  &.is-current {
+    @extend %type-weight--medium !optional;
+    padding-bottom: calc(#{space(sm)} - #{$tab-label-border--highlight-size});
+  }
+}
+
+// Global tabs are considered the "primary" version of tabs
+.weave-tabs--global {
+  border-bottom: $tabs--border;
+
+  .weave-tabs__label.is-current {
+    color: $text--primary;
+    border-bottom: $tab-label-border--highlight-size $tab-label-border--highlight solid;
+  }
+}
+
+// Scoped tabs require an existing scope
+// E.g. A level of navigation higher
+.weave-tabs--scoped {
+  .weave-tabs__label.is-current {
+    color: $tab-label-border--highlight;
+  }
+}

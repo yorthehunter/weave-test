@@ -1,0 +1,97 @@
+$table-row-border: 1px solid color(gray-light);
+$table-row-bg--hover: color(black-10);
+$table-row-bg--stripe: color(gray-lightest);
+$table-row-bg--stripe-alternate: color(white);
+
+$table-padding--default: space(md) space(sm);
+$table-padding--condensed: space(sm) space(sm);
+$table-padding--none: 0;
+
+.weave-table {
+  // Reset the default separation of table cells
+  border-collapse: collapse;
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &--basic {
+    @extend %type-sm !optional;
+
+    // Defining this way (at the child level only) allows tables to be nested
+    // without overwriting the child table's styles
+    > thead > tr,
+    > tbody > tr,
+    > tfoot > tr,
+    > tr {
+
+      > th {
+        text-align: left;
+      }
+
+      > th,
+      > td {
+        padding: $table-padding--default;
+      }
+    }
+  }
+
+  // Simple bordered tables. Borders are between rows, not around every cell
+  &--bordered {
+    > thead > tr,
+    > tbody > tr,
+    > tfoot > tr,
+    > tr {
+      border-bottom: $table-row-border;
+    }
+  }
+
+  // Adds every-other-row striping
+  &--striped {
+    tbody > tr,
+    > tr {
+      &:nth-child(odd) {
+        background-color: $table-row-bg--stripe;
+      }
+      &:nth-child(even) {
+        background-color: $table-row-bg--stripe-alternate;
+      }
+    }
+  }
+
+  // Adds a row highlight when hovered over
+  &--hoverable {
+    tbody > tr,
+    > tr {
+      &:hover {
+        background-color: $table-row-bg--hover;
+      }
+    }
+  }
+
+  // Condensed padding
+  &--condensed {
+    > thead > tr,
+    > tbody > tr,
+    > tfoot > tr,
+    > tr {
+      > th,
+      > td {
+        padding: $table-padding--condensed;
+      }
+    }
+  }
+
+  // Zero padding
+  &--nopad {
+    > thead > tr,
+    > tbody > tr,
+    > tfoot > tr,
+    > tr {
+      > th,
+      > td {
+        padding: $table-padding--none;
+      }
+    }
+  }
+}

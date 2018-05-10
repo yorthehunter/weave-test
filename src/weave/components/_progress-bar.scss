@@ -1,0 +1,110 @@
+$progress-bar-bg--accent:  $colored-accent;
+$progress-bar-bg:      color(gray-light);
+$progress-bar-size:    0.25rem;
+
+.weave-progress {
+  position: relative;
+  height: $progress-bar-size;
+  border-radius: $rounded--default;
+  background-color: $progress-bar-bg;
+  overflow: hidden;
+  background-color: $progress-bar-bg;
+
+  // Determinite progress bar shows how long a process will take to complete.
+  // It requires something to control its width as a percentage (up of 100%).
+  &__determinate {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    @include transition(width);
+    background-color: $progress-bar-bg--accent;
+  }
+
+  // Inderterminate progress bar shows progress, but at an unknown rate.
+  &__indeterminate {
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: $progress-bar-bg--accent;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      will-change: left, right;
+    }
+
+    &::before {
+      animation:   weave-indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+    }
+
+    &::after {
+      animation:       weave-indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+      animation-delay: 1.15s;
+    }
+  }
+}
+
+@-webkit-keyframes weave-indeterminate {
+  0% {
+    left: -35%;
+    right: 100%;
+  }
+
+  60% {
+    left: 100%;
+    right: -90%;
+  }
+
+  100% {
+    left: 100%;
+    right: -90%;
+  }
+}
+@keyframes weave-indeterminate {
+  0% {
+    left: -35%;
+    right: 100%;
+  }
+
+  60% {
+    left: 100%;
+    right: -90%;
+  }
+
+  100% {
+    left: 100%;
+    right: -90%;
+  }
+}
+@-webkit-keyframes weave-indeterminate-short {
+  0% {
+    left: -200%;
+    right: 100%;
+  }
+
+  60% {
+    left: 107%;
+    right: -8%;
+  }
+
+  100% {
+    left: 107%;
+    right: -8%;
+  }
+}
+@keyframes weave-indeterminate-short {
+  0% {
+    left: -200%;
+    right: 100%;
+  }
+
+  60% {
+    left: 107%;
+    right: -8%;
+  }
+
+  100% {
+    left: 107%;
+    right: -8%;
+  }
+}

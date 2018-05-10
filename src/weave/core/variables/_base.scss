@@ -1,0 +1,24 @@
+// Sets a default path for assets, typically used for custom webfonts
+$weave-asset-path: '../assets/' !default;
+
+// Optional inclusions
+// These options allow for parts of the compiled code to be turned on or off.
+// For example, if you are working in a legacy app and don't need to normalize
+// your browser styles because you already use another reset.css, then set that
+// option to false.
+
+// It's recommended for new apps or apps that don't use any other UI framework
+// to keep all options on.
+$weave-normalize-browser-styles--option:      true !default;
+$weave-typography-reset--option: true !default;
+$weave-utilities--option:  true !default;
+
+// Lets us retrieve values from nested Sass maps
+// More info: https://css-tricks.com/snippets/sass/deep-getset-maps/
+// Sass maps: http://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}

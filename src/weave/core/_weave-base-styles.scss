@@ -1,0 +1,46 @@
+@mixin weave-base-styles {
+  // The typography reset sets up some default values for type elements.
+
+  html {
+    // Sets us up to have a standardized rem base (in our case, 16px by default)
+    // We make use of this rem standard to keep most of our elements on an 8px
+    // vertical grid (0.5rem). Generally keeping to that grid (or multiples of it)
+    // gives us a cleaner layout and typography hierarchy overall.
+    font-size: var(--font-size-pixel-base);
+  }
+
+  body {
+    color: var(--text-color);
+    font-family: var(--font-family-default);
+  }
+
+  a {
+    color: var(--link-color);
+    text-decoration: underline;
+    text-decoration-skip-ink: auto;
+  }
+
+  strong,
+  b {
+    font-weight: var(--font-weight-bold);
+  }
+
+  ul,
+  ol,
+  dl {
+    @include weave-type-and-line-height('f2', true);
+    margin-bottom: var(--spacing-md);
+  }
+
+  dt {
+    font-weight: var(--font-weight-default);
+  }
+
+  dd {
+    margin: 0;
+  }
+}
+
+@if $weave-base-styles--option == true {
+  @include weave-base-styles;
+}

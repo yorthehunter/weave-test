@@ -10,7 +10,7 @@ $weave-asset-path: '../assets/' !default;
 // It's recommended for new apps or apps that don't use any other UI framework
 // to keep all options on.
 $weave-normalize-browser-styles--option:      true !default;
-$weave-typography-reset--option: true !default;
+$weave-base-styles--option: true !default;
 $weave-utilities--option:  true !default;
 
 // Lets us retrieve values from nested Sass maps

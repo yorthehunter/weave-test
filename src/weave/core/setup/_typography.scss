@@ -1,5 +1,5 @@
 // Typography settings
-// These values set up some defaults for type, like sizes and colors
+// Sets up some defaults for type, including mixins and utility classes
 
 :root {
   --font-weight-bold: bold;
@@ -44,4 +44,84 @@
   --font-size-pixel-base: 16px;
   --font-weight-default: var(--font-weight-medium);
   --type-size-default: var(--type-size-md);
+}
+
+// Non-responsive type sizing mixin
+@mixin weave-type($size) {
+  font-size: var(--type-size-#{$size});
+}
+
+@mixin weave-line-height($size, $body) {
+  @if $body {
+    line-height: var(--body-line-height-#{$size});
+  } @else {
+    line-height: var(--compact-line-height-#{$size});
+  }
+}
+
+// Type sizing and line-height setting
+// Include a $body value of true to apply line-height appropriate for body copy.
+// Body copy is typically any multi-line text, like in paragraphs or headings.
+@mixin weave-type-and-line-height($size, $body) {
+  @include weave-type($size);
+  @include weave-line-height($size, $body);
+}
+
+// Responsive type sizing mixin: will appropriately break down type at two pre-
+// defined breakpoints and uses a body-style of line-height (readable multiline)
+@mixin weave-responsive-type($primary-size, $secondary-size, $tertiary-size) {
+  @include weave-type-and-line-height($primary-size, true);
+
+  @if $secondary-size {
+    @include viewport-equal-to-and-smaller-than('md') {
+      @include weave-type-and-line-height($secondary-size, true);
+    }
+  }
+
+  @if $tertiary-size {
+    @include viewport-equal-to-and-smaller-than('xs') {
+      @include weave-type-and-line-height($tertiary-size, true);
+    }
+  }
+}
+
+// Responsive type sizing utility classes
+.weave-h1 {
+  @include weave-responsive-type('f7', 'f6', 'f5');
+}
+
+.weave-h2 {
+  @include weave-responsive-type('f6', 'f5', 'f4');
+}
+
+.weave-h3 {
+  @include weave-responsive-type('f5', 'f4', 'f3');
+}
+
+.weave-h4 {
+  @include weave-responsive-type('f4', 'f3', 'f2');
+}
+
+.weave-p {
+  @include weave-responsive-type('f3', 'f2', 'f1');
+
+  + .weave-p {
+    // Add a margin to the top of any paragraph that immediately follows a paragraph
+    margin-top: var(--spacing-md);
+  }
+}
+
+// Non-responsive type sizing utility classes
+@each $name in ['f0', 'f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8'] {
+  .weave-type-#{$name} {
+    @include weave-type($name);
+  }
+
+  .weave-line-compact-#{$name} {
+    @include weave-line-height($name, false);
+  }
+
+  .weave-line-body-#{$name} {
+    @include weave-line-height($name, true);
+  }
 }

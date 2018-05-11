@@ -28,13 +28,34 @@ $breakpoint-map: (
   )
 );
 
-@mixin viewport-at($breakpoint) {
+// Includes a block of styles when breakpoint is EQUAL TO AND SMALLER THAN $breakpoint
+@mixin viewport-equal-to-and-smaller-than($breakpoint) {
   @if map-has-key($breakpoint-map, $breakpoint) {
     $max-width: map-deep-get($breakpoint-map, $breakpoint, max-width);
     @if ($max-width == null) {
       @content;
-    } @else {
+    }
+    @else {
       @media screen and (max-width: $max-width) {
+        @content;
+      }
+    }
+  }
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+
+// Includes a block of styles when breakpoint is EQUAL TO AND LARGER THAN $breakpoint
+@mixin viewport-equal-to-and-larger-than($breakpoint) {
+  @if map-has-key($breakpoint-map, $breakpoint) {
+    $min-width: map-deep-get($breakpoint-map, $breakpoint, min-width);
+    @if ($min-width == 0) {
+      @content;
+    }
+    @else {
+      @media screen and (min-width: $min-width) {
         @content;
       }
     }

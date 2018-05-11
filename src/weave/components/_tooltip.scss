@@ -8,7 +8,7 @@ $tooltip-type-color: color(white);
   display: table; // Fixes width of element
   visibility: hidden;
   @extend %type-xs !optional;
-  @include transition-once(transform, 0.1s, $transition-easing--complex);
+  @include transition-once(transform, .1s, var(--transition-easing-complex));
   z-index: map-deep-get($elevation-map, 5, index); // highest default elevation
   padding: $tooltip-padding--default;
   border-radius: $rounded--default;

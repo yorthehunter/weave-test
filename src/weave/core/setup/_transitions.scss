@@ -1,0 +1,37 @@
+// Transitions
+// Transitions are css properties that smoothly animate between states
+
+:root {
+  --transition-speed-fast: .2s;
+  --transition-speed-medium: .4s;
+  --transition-speed-slow: .8s;
+
+  --transition-easing-simple: ease-in-out;
+  --transition-easing-complex: cubic-bezier(.455, .03, .515, .955);
+}
+
+:root {
+  --transition-speed-default: var(--transition-speed-fast);
+  --transition-easing-default: var(--transition-easing-simple);
+}
+
+// Transition mixin takes transitionable properties (as an argument list) and
+// applies default speed and easing to it. Using "all" as a transition may
+// impact performance, as it applies transition to all applicable properties.
+//
+// E.g. @include transition(box-shadow, opacity);
+
+@mixin transition($transition...) {
+  transition: $transition;
+  transition-duration: var(--transition-speed-default);
+  transition-timing-function: var(--transition-easing-default);
+}
+
+// Applies a transition to a single property, but allows more control over the
+// speed and easing, when more conrol is needed.
+//
+// E.g. @include transition-once(max-height, var(--transition-speed-slow), var(--transition-easing-complex));
+
+@mixin transition-once($transition-property, $transition-speed: var(--transition-speed-default), $transition-easing: var(--transition-easing-default)) {
+  transition: $transition-property $transition-speed $transition-easing;
+}

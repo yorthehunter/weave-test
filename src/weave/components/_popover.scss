@@ -26,7 +26,7 @@ $popover-triangle-bg-color: color(white);
 %weave-popover,
 .weave-popover {
   @extend %elevated--3 !optional;
-  @include transition-once(transform, .1s, $transition-easing--complex);
+  @include transition-once(transform, .1s, var(--transition-easing-complex));
   @include type(sm, true);
   background-color: $popover-bg;
   border-radius: $rounded--default;

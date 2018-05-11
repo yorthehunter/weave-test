@@ -1,0 +1,93 @@
+@mixin weave-banner--sm {
+  --padding-y: var(--spacing-sm);
+  --padding-x: var(--spacing-md);
+  @include weave-type-and-line-height('f2', false);
+}
+
+@mixin weave-banner--md {
+  --padding-y: var(--spacing-md);
+  --padding-x: var(--spacing-lg);
+  @include weave-type-and-line-height('f3', false);
+}
+
+@mixin weave-banner--lg {
+  --padding-y: var(--spacing-lg);
+  --padding-x: var(--spacing-xl);
+  @include weave-type-and-line-height('f4', false);
+}
+
+.weave-banner {
+  // Sets default values
+  --elevation: var(--elevated-2);
+  --display-as: flex;
+  --bg-color: var(--neutral-color);
+  --font-color: var(--color-black);
+
+  // Default to medium size if no modifier added
+  @include weave-banner--md;
+  display: var(--display-as);
+  color: var(--font-color);
+  background-color: var(--bg-color);
+  padding: var(--padding-y) var(--padding-x);
+  box-shadow: var(--elevation);
+  margin-bottom: var(--spacing-sm);
+}
+
+.weave-banner__message {
+  flex-grow: 1;
+}
+
+.weave-banner__close {
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+
+  &::after {
+    content: 'X';
+  }
+}
+
+.weave-banner--error {
+  --bg-color: var(--error-color);
+  --font-color: var(--color-white);
+}
+
+.weave-banner--warning {
+  --bg-color: var(--warning-color);
+  --font-color: var(--color-white);
+}
+
+.weave-banner--info {
+  --bg-color: var(--info-color);
+  --font-color: var(--color-black);
+}
+
+.weave-banner--success {
+  --bg-color: var(--success-color);
+  --font-color: var(--color-white);
+}
+
+.weave-banner--sm {
+  @include weave-banner--sm;
+}
+
+.weave-banner--md {
+  @include weave-banner--md;
+}
+
+.weave-banner--lg {
+  @include weave-banner--lg;
+}
+
+.weave-banner--responsive {
+  @include viewport-equal-to-and-smaller-than('full') {
+    @include weave-banner--lg;
+  };
+
+  @include viewport-equal-to-and-smaller-than('lg') {
+    @include weave-banner--md;
+  };
+
+  @include viewport-equal-to-and-smaller-than('sm') {
+    @include weave-banner--sm;
+  };
+}

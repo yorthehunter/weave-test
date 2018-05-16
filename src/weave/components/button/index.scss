@@ -1,60 +1,27 @@
-@mixin weave-button--xs {
-  --padding-y: var(--spacing-none);
-  --padding-x: var(--spacing-sm);
-  @include weave-type-and-line-height('f0', false);
-}
-
-@mixin weave-button--sm {
-  --padding-y: var(--spacing-xs);
-  --padding-x: var(--spacing-md);
-  @include weave-type-and-line-height('f1', false);
-}
-
-@mixin weave-button--md {
-  --padding-y: var(--spacing-sm);
-  --padding-x: var(--spacing-lg);
-  @include weave-type-and-line-height('f2', false);
-}
-
-@mixin weave-button--lg {
-  --padding-y: var(--spacing-md);
-  --padding-x: var(--spacing-xl);
-  @include weave-type-and-line-height('f3', false);
-}
+@import '../../core/index';
+@import './button-mixins';
 
 .weave-button {
-  // Sets default values
+  // Defaults
   --border-radius: var(--border-radius-default);
   --display-as: inline-flex;
   --font-color: var(--color-white);
   --bg-color: var(--color-gray);
   --bg-color-hover: var(--color-gray-light);
-  --padding-y: var(--spacing-xs);
-  --padding-x: var(--spacing-sm);
+  --py: var(--spacing-xs);
+  --px: var(--spacing-sm);
   --elevation: var(--elevated-1);
 
   // Default to medium size if no modifier added
   @include weave-button--md;
-  @include transition(opacity, box-shadow);
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-  text-transform: uppercase;
-  justify-content: center;
-  border-radius: var(--border-radius);
-  display: var(--display-as);
-  color: var(--font-color);
-  background-color: var(--bg-color);
-  padding: var(--padding-y) var(--padding-x);
-  box-shadow: var(--elevation);
-  margin: var(--spacing-sm);
+  @include weave-button;
 
   &.is-disabled {
     cursor: not-allowed;
     opacity: var(--disabled-opacity);
   }
 
-  &:not(.is-disabled):not(.weave-button-flat):hover {
+  &:not(.is-disabled):not(.weave-button--flat):hover {
     --elevation: var(--elevated-2);
     opacity: .85;
   }
@@ -85,21 +52,7 @@
 }
 
 .weave-button--responsive {
-  @include viewport-equal-to-and-smaller-than('full') {
-    @include weave-button--lg;
-  };
-
-  @include viewport-equal-to-and-smaller-than('lg') {
-    @include weave-button--md;
-  };
-
-  @include viewport-equal-to-and-smaller-than('sm') {
-    @include weave-button--sm;
-  };
-
-  @include viewport-equal-to-and-smaller-than('xs') {
-    width: 100%;
-  };
+  @include weave-button--responsive;
 }
 
 .weave-button--cta {

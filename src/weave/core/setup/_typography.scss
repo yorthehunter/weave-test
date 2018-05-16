@@ -40,8 +40,7 @@
 // Defaults
 :root {
   --font-face-default: 'Whitney SSm';
-  --font-family-default: var(--font-face-default) helvetica, sans-serif;
-  --font-size-pixel-base: 16px;
+  --font-family-default: var(--font-face-default), helvetica, sans-serif;
   --font-weight-default: var(--font-weight-medium);
   --type-size-default: var(--type-size-md);
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { node, oneOf, bool } from 'prop-types';
 import classNames from 'classnames';
+import '../weave/components/button/index.scss';
 
 const Button = (props) => {
   const {
@@ -37,8 +38,8 @@ Button.defaultProps = {
 };
 
 Button.propTypes = {
-  type: oneOf(undefined, 'primary', 'secondary', 'cta', 'flat'),
-  size: oneOf(undefined, 'xs', 'sm', 'md', 'lg'),
+  type: oneOf([undefined, 'primary', 'secondary', 'cta', 'flat']),
+  size: oneOf([undefined, 'xs', 'sm', 'md', 'lg']),
   disabled: bool,
   responsive: bool,
   fullWidth: bool,

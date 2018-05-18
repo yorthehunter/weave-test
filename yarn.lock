@@ -8262,6 +8262,29 @@ watchpack@^0.2.1:
     chokidar "^1.0.0"
     graceful-fs "^4.1.2"
 
+"weave-react-banner@file:./src/components/Banner":
+  version "1.0.0"
+  dependencies:
+    weave-ui-banner "file:../../../Library/Caches/Yarn/weave/components/banner"
+
+"weave-ui-badge@file:./src/weave/components/badge":
+  version "1.0.0"
+  dependencies:
+    weave-ui-core "file:../../../Library/Caches/Yarn/core"
+
+"weave-ui-banner@file:./src/weave/components/banner", "weave-ui-banner@file:src/weave/components/banner":
+  version "1.0.0"
+  dependencies:
+    weave-ui-core "file:../../../Library/Caches/Yarn/core"
+
+"weave-ui-button@file:./src/weave/components/button":
+  version "1.0.0"
+  dependencies:
+    weave-ui-core "file:../../../Library/Caches/Yarn/core"
+
+"weave-ui-core@file:src/weave/core":
+  version "1.0.0"
+
 webpack-configurator@^0.3.0:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/webpack-configurator/-/webpack-configurator-0.3.1.tgz#d16802afa674101a0cbfa6fc344d415c9649540b"

@@ -1,5 +1,5 @@
 @mixin weave-button {
-  @include transition(opacity, box-shadow, outline);
+  @include transition(background-color, box-shadow, outline);
   border-radius: var(--border-radius);
   display: var(--display-as);
   color: var(--font-color);

@@ -1,20 +1,20 @@
-@import '../../core/index';
+@import '../weave-ui-core/index';
 @import './button-mixins';
 
 .weave-button {
-  // Defaults
-  --border-radius: var(--border-radius-default);
-  --display-as: inline-flex;
-  --font-color: var(--color-white);
-  --bg-color: var(--color-gray);
-  --bg-color-hover: var(--color-gray-light);
-  --py: var(--spacing-xs);
-  --px: var(--spacing-sm);
-  --elevation: var(--elevated-1);
-
   // Default to medium size if no modifier added
   @include weave-button--md;
   @include weave-button;
+
+  // Defaults
+  --border-radius: var(--border-radius-default);
+  --display-as: inline-flex;
+  --font-color: #{$color-white};
+  --bg-color: #{$color-gray};
+  --bg-color-hover: #{lighten($color-gray, 10%)};
+  --py: var(--spacing-xs);
+  --px: var(--spacing-sm);
+  --elevation: var(--elevated-1);
 
   &.is-disabled {
     cursor: not-allowed;
@@ -23,7 +23,10 @@
 
   &:not(.is-disabled):not(.weave-button--flat):hover {
     --elevation: var(--elevated-2);
-    opacity: .85;
+  }
+
+  &:not(.is-disabled):hover {
+    --bg-color: var(--bg-color-hover);
   }
 
   &:focus:not(.is-disabled) {
@@ -56,22 +59,24 @@
 }
 
 .weave-button--cta {
-  --bg-color: var(--color-watermelon);
-  --bg-color-hover: var(--color-watermelon-light);
+  --bg-color: #{$color-watermelon};
+  --bg-color-hover: #{lighten($color-watermelon, 10%)};
 }
 
 .weave-button--primary {
-  --bg-color: var(--color-blueberry);
-  --bg-color-hover: var(--color-blueberry-light);
+  --bg-color: #{$color-blueberry};
+  --bg-color-hover: #{lighten($color-blueberry, 10%)};
 }
 
 .weave-button--secondary {
-  --font-color: var(--color-black);
-  --bg-color: var(--color-white);
+  --font-color: #{$color-black};
+  --bg-color: #{$color-white};
+  --bg-color-hover: #{$color-white};
 }
 
 .weave-button--flat {
   --font-color: var(--link-color);
   --bg-color: transparent;
   --elevation: var(--elevated-0);
+  --bg-color-hover: #{$color-black-10};
 }

@@ -1,0 +1,67 @@
+@import '../weave-ui-core/index';
+@import './badge-mixins';
+
+// Badge
+//
+// Used to indicate that something has changed “behind the scenes” and that a
+// user should address the issue in order to dismiss the badge
+
+$badge-bg--default: color(watermelon);
+$badge-size: 1rem;
+
+.weave-badge {
+  // Defaults
+  --border-radius: var(--border-radius-circle);
+  --display-as: inline-flex;
+  --elevation: var(--elevated-1);
+  --z-index: var(--z-index-1);
+  --font-color: #{$color-white};
+  --bg-color: #{$color-watermelon};
+  --size: 1rem;
+  @include weave-badge;
+}
+
+.weave-badge--inline {
+  transform: translate(0, 0);
+}
+
+.weave-badge--upper-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+// .weave-has-badge allows a badge to be generated as a pseudo element outside
+// of the DOM and can have dynamic content.
+.weave-has-badge {
+  position: relative;
+
+  // Small badge, no content inside
+  &:after {
+    @extend %weave-badge, %weave-badge--upper-right !optional;
+    content: '';
+    width: $badge-size/2;
+    height: $badge-size/2;
+  }
+
+  // Normal badge, with content
+  &[data-badge] {
+    &:after {
+      content: attr(data-badge);
+      width: $badge-size;
+      height: $badge-size;
+    }
+  }
+
+  // No badge (undefined)
+  &[data-badge="none"],
+  &[data-badge="undefined"],
+  &[data-badge="null"],
+  .is-undefined,
+  .is-null {
+    &:after {
+      display: none;
+    }
+  }
+}

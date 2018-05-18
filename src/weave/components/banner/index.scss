@@ -1,48 +1,53 @@
-@import '../../core/index';
+@import '../weave-ui-core/index';
 @import './banner-mixins';
 
 .weave-banner {
-  // Defaults
-  --elevation: var(--elevated-2);
-  --display-as: flex;
-  --bg-color: var(--neutral-color);
-  --font-color: var(--color-black);
-
   // Default to medium size if no modifier added
   @include weave-banner--md;
   @include weave-banner;
+  // Defaults
+  --bg-color: var(--neutral-color);
+  --display-as: flex;
+  --elevation: var(--elevated-2);
+  --font-color: $color-black;
 }
 
 .weave-banner__message {
   flex-grow: 1;
 }
 
-// CSS close icon: not needed for a js/react component
 .weave-banner__close {
-  padding-left: var(--spacing-md);
-  padding-right: var(--spacing-md);
-  position: relative;
-  left: 1rem;
+  @include transition(background-color);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding-left: var(--spacing-sm);
+  padding-right: var(--spacing-sm);
+  margin-right: calc((var(--px) - var(--spacing-sm)) * -1);
+
+  &:hover {
+    background-color: $color-black-10;
+  }
+}
+
+.weave-banner--flat {
+  --elevation: var(--elevated-0);
 }
 
 .weave-banner--error {
-  --bg-color: var(--error-color);
-  --font-color: var(--color-white);
+  @include weave-error-field;
 }
 
 .weave-banner--warning {
-  --bg-color: var(--warning-color);
-  --font-color: var(--color-black);
+  @include weave-warning-field;
 }
 
 .weave-banner--info {
-  --bg-color: var(--info-color);
-  --font-color: var(--color-black);
+  @include weave-info-field;
 }
 
 .weave-banner--success {
-  --bg-color: var(--success-color);
-  --font-color: var(--color-white);
+  @include weave-success-field;
 }
 
 .weave-banner--sm {

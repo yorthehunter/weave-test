@@ -1,7 +1,8 @@
 import React from 'react';
 import { node, oneOf, bool } from 'prop-types';
 import classNames from 'classnames';
-import '../weave/components/button/index.scss';
+import 'weave-ui-button';
+// import '../weave/components/button/index.scss';
 
 const Button = (props) => {
   const {

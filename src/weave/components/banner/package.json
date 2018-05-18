@@ -1,5 +1,8 @@
 {
   "name": "weave-ui-banner",
+  "dependencies": {
+    "weave-ui-core": "file:../../core/"
+  },
   "version": "1.0.0",
   "description": "Weave banner styles",
   "main": "index.scss",

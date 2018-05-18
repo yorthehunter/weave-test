@@ -3,7 +3,7 @@ import { oneOf, string, bool, node } from 'prop-types';
 import { sizeModifier, alertStyleModifier } from '../utilities/util';
 import Icon from '../utilities/Icon';
 import CustomTag from '../utilities/CustomTag';
-import '../../weave/components/banner/index.scss';
+import 'weave-ui-banner';
 
 const componentPrefix = 'weave-banner';
 
@@ -28,19 +28,6 @@ class Banner extends React.Component {
     this.setState({ weaveBannerVisible: false });
   }
 
-  iconColor(type) {
-    switch (type) {
-      case 'error':
-      case 'success':
-        return '#FFFFFF';
-      case 'info':
-      case 'warning':
-        return '#000000';
-      default:
-        return '#000000';
-    }
-  }
-
   render() {
     const {
       content,
@@ -49,13 +36,28 @@ class Banner extends React.Component {
       size,
       responsive,
       dismissable,
+      flat,
     } = this.props;
+
+    const iconColor = () => {
+      switch (type) {
+        case 'error':
+        case 'success':
+          return '#FFFFFF';
+        case 'info':
+        case 'warning':
+          return '#000000';
+        default:
+          return '#000000';
+      }
+    };
 
     const componentClasses = [
       componentPrefix,
       sizeModifier(size, componentPrefix),
       alertStyleModifier(type, componentPrefix),
       responsive && `${componentPrefix}--responsive`,
+      flat && `${componentPrefix}--flat`,
     ];
 
     if (this.state.weaveBannerVisible) {
@@ -68,10 +70,10 @@ class Banner extends React.Component {
           {
             dismissable &&
             <button
-              style={{ cursor: 'pointer', border: 'none', backgroundColor: 'transparent' }}
+              className={`${componentPrefix}__close`}
               onClick={this.removeBanner}
             >
-              <Icon name="close" color={this.iconColor(type)} />
+              <Icon name="close" color={iconColor()} />
             </button>
           }
         </CustomTag>
@@ -89,6 +91,7 @@ const defaultProps = {
   visible: false,
   responsive: false,
   dismissable: true,
+  flat: false,
   children: null,
 };
 
@@ -112,6 +115,7 @@ const propTypes = {
   visible: bool,
   responsive: bool,
   dismissable: bool,
+  flat: bool,
   /** Banner content (if props.content isn't specified) */
   children: node,
 };

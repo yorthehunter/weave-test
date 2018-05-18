@@ -1,10 +1,10 @@
 {
-  "name": "weave-ui-button",
+  "name": "weave-react-banner",
   "dependencies": {
-    "weave-ui-core": "file:../../core/"
+    "weave-ui-banner": "file:../../weave/components/banner"
   },
   "version": "1.0.0",
-  "description": "Weave button styles",
+  "description": "Weave banner React component",
   "main": "index.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

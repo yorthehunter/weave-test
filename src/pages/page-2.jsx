@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
-import Banner from '../components/Banner/';
+import Banner from 'weave-react-banner';
+import Badge from '../components/Badge/';
 
 const SecondPage = () => (
   <div>
@@ -19,6 +20,12 @@ const SecondPage = () => (
     <Banner content="Banner content goes here." size="lg" visible />
     <Banner content="Banner content goes here." responsive visible />
     <Banner content="Banner content goes here." dismissable={false} />
+
+    <Badge content="!" />
+    <Badge content="!" position="inline" />
+    <div style={{ position: 'relative', height: '5rem', outline: '1px solid black' }}>
+      <Badge content="!" position="upper-right" />
+    </div>
   </div>
 );
 

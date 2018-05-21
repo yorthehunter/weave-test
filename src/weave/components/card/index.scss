@@ -1,0 +1,68 @@
+@import '../weave-ui-core/index';
+
+// Cards
+//
+// Cards are contained chunks of content that visually separate content and help
+// convey the individual interactivity that a chunk of content might have.
+//
+// Example:
+// <article class="weave-card">...</article>
+
+.weave-card {
+  --elevation: var(--elevated-1);
+  --border-radius: var(--border-radius-default);
+  --bg-color: #{$color-white};
+  --border: var(--border-neutral);
+
+  box-shadow: var(--elevation);
+  border-radius: var(--border-radius);
+  background-color: var(--bg-color);
+}
+
+// .weave-card--hoverable gives the card a higher "elevation" on hover
+.weave-card--hoverable {
+  @include transition(box-shadow);
+
+  &:hover,
+  &:focus {
+    --elevation: var(--elevated-2);
+  }
+}
+
+// Use `.weave-card__panel` to separate sections of the card using bg color
+// .weave-card__panel {
+//
+// }
+//
+//   &__panel {
+//     box-sizing: border-box;
+//     padding: space(sm);
+//     background-color: color(gray-lightest);
+//
+//     // `.weave-card__panel--inline` applies flex to the panel, if needed
+//     &--inline {
+//       @extend %flex-container !optional;
+//     }
+//
+//     &--xs {
+//       @extend %type-xs !optional;
+//     }
+//   }
+//
+//   & > &__panel:first-child {
+//     border-top-left-radius: var(--border-radius);
+//     border-top-right-radius: var(--border-radius);
+//   }
+//
+//
+//   & > &__panel:last-child {
+//     border-bottom-left-radius: var(--border-radius);
+//     border-bottom-right-radius: var(--border-radius);
+//   }
+//
+//   // When 2 or more panels are butted up against each other, remove
+//   // the padding from all but the top one to have a cleaner UI.
+//   &__panel + &__panel {
+//     padding-top: 0;
+//   }
+// }

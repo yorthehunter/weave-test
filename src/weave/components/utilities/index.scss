@@ -1,0 +1,153 @@
+// Utilities are classes that help lay out a UI properly. They should be used
+// as classes or extended as you see fit.
+// Utility classes get a pass on using !important, but please be aware that they
+// will likely override existing properties.
+
+@mixin weave-utilities {
+  // Block elements (like <div>) are full width by default. Be sure you're not
+  // overriding anything important when using this.
+  %full-width,
+  .full-width {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  // Forces full-width on an element for xs viewports. Useful when you simply
+  // want a block of content for mobile viewports.
+  @include viewport-at(xs) {
+    %full-width--xs,
+    .full-width--xs {
+      width: 100%;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+  }
+
+  @each $size in ['xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'none'] {
+    %px-#{$size},
+    .px-#{$size} {
+      --px: var(--spacing-#{$size});
+      padding-left: var(--px);
+      padding-right: var(--px);
+    }
+
+    %py-#{$size},
+    .py-#{$size} {
+      --py: var(--spacing-#{$size});
+      padding-top: var(--py);
+      padding-bottom: var(--py);
+    }
+
+    %pt-#{$size},
+    .pt-#{$size} {
+      --py: var(--spacing-#{$size});
+      padding-top: var(--py);
+    }
+
+    %pb-#{$size},
+    .pb-#{$size} {
+      --py: var(--spacing-#{$size});
+      padding-bottom: var(--py);
+    }
+
+    %pl-#{$size},
+    .pl-#{$size} {
+      --px: var(--spacing-#{$size});
+      padding-left: var(--px);
+    }
+
+    %pr-#{$size},
+    .pr-#{$size} {
+      --px: var(--spacing-#{$size});
+      padding-right: var(--px);
+    }
+
+    %mx-#{$size},
+    .mx-#{$size} {
+      --mx: var(--spacing-#{$size});
+      padding-left: var(--mx);
+      padding-right: var(--mx);
+    }
+
+    %my-#{$size},
+    .my-#{$size} {
+      --my: var(--spacing-#{$size});
+      padding-top: var(--my);
+      padding-bottom: var(--my);
+    }
+
+    %mt-#{$size},
+    .mt-#{$size} {
+      --my: var(--spacing-#{$size});
+      padding-top: var(--my);
+    }
+
+    %mb-#{$size},
+    .mb-#{$size} {
+      --my: var(--spacing-#{$size});
+      padding-bottom: var(--my);
+    }
+
+    %ml-#{$size},
+    .ml-#{$size} {
+      --mx: var(--spacing-#{$size});
+      padding-left: var(--mx);
+    }
+
+    %mr-#{$size},
+    .mr-#{$size} {
+      --mx: var(--spacing-#{$size});
+      padding-right: var(--mx);
+    }
+  }
+
+  // Strips a list of its styles
+  %list-unstyled,
+  .list-unstyled {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  // Use this to hide an element but allow it to still be readable in the DOM
+  // e.g. for screenreaders
+  %hidden-from-sight,
+  .hidden-from-sight {
+    position: absolute;
+    left: -200vw;
+  }
+
+  // Vertical pipe used to separate inline elements; e.g. a list of links
+  %separator-pipe,
+  .separator-pipe {
+    border-left: 1px solid color(gray-light);
+    margin-left: space(sm);
+    margin-right: space(sm);
+    align-self: stretch; // When inside a flex box, stretch to fit height
+
+    // Pipe variant color modifier
+    &--dark {
+      border-left-color: color(black-25);
+    }
+  }
+
+  %text-center,
+  .text-center {
+    text-align: center;
+  }
+
+  %text-strike,
+  .text-strike {
+    text-decoration: line-through;
+  }
+
+  %text-deemphasize,
+  .text-deemphasize {
+    color: var(--text-secondary-color);
+    font-style: italic;
+  }
+
+}
+
+@if $weave-utilities--option == true {
+  @include weave-utilities;
+}

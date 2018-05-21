@@ -1,12 +1,8 @@
 {
-  "name": "weave-react-banner",
-  "dependencies": {
-    "weave-react-utilities": "file:../utilities",
-    "weave-ui-banner": "file:../../weave/components/banner"
-  },
+  "name": "weave-react-utilities",
   "version": "1.0.0",
-  "description": "Weave banner React component",
-  "main": "index.jsx",
+  "description": "Weave React utilities",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

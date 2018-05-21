@@ -1,0 +1,24 @@
+.weave-box {
+  --display-as: flex;
+  --my: var(--spacing-md);
+  --mx: var(--spacing-md);
+  --py: var(--spacing-md);
+  --px: var(--spacing-md);
+  --direction: row;
+
+  display: var(--display-as);
+  flex-direction: var(--direction);
+}
+
+.weave-box--stacked {
+  --direction: column;
+
+  > .weave-box + .weave-box {
+    margin-right: 0;
+    margin-top: var(--my);
+  }
+}
+
+.weave-box--fill > .weave-box {
+  flex: 1;
+}

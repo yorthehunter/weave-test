@@ -2,7 +2,7 @@
   "name": "weave-react-banner",
   "dependencies": {
     "weave-react-utilities": "file:../utilities",
-    "weave-ui-banner": "file:../../weave/components/banner"
+    "weave-ui-badge": "file:../../weave/components/badge"
   },
   "version": "1.0.0",
   "description": "Weave banner React component",

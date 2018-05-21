@@ -8262,17 +8262,27 @@ watchpack@^0.2.1:
     chokidar "^1.0.0"
     graceful-fs "^4.1.2"
 
-"weave-react-banner@file:./src/components/Banner":
+"weave-react-badge@file:./src/components/Badge":
   version "1.0.0"
   dependencies:
-    weave-ui-banner "file:../../../Library/Caches/Yarn/weave/components/banner"
+    weave-react-utilities "file:../../../Library/Caches/Yarn/v1/utilities"
+    weave-ui-badge "file:../../../Library/Caches/Yarn/weave/components/badge"
 
-"weave-ui-badge@file:./src/weave/components/badge":
+"weave-react-banner@file:src/components/Badge":
+  version "1.0.0"
+  dependencies:
+    weave-react-utilities "file:../../../Library/Caches/Yarn/v1/utilities"
+    weave-ui-badge "file:../../../Library/Caches/Yarn/weave/components/badge"
+
+"weave-react-utilities@file:src/components/utilities":
+  version "1.0.0"
+
+"weave-ui-badge@file:./src/weave/components/badge", "weave-ui-badge@file:src/weave/components/badge":
   version "1.0.0"
   dependencies:
     weave-ui-core "file:../../../Library/Caches/Yarn/core"
 
-"weave-ui-banner@file:./src/weave/components/banner", "weave-ui-banner@file:src/weave/components/banner":
+"weave-ui-banner@file:./src/weave/components/banner":
   version "1.0.0"
   dependencies:
     weave-ui-core "file:../../../Library/Caches/Yarn/core"

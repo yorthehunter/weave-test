@@ -1,8 +1,8 @@
 import React from 'react';
 import { string, oneOf } from 'prop-types';
+import 'weave-ui-badge';
 import { positionModifier } from '../utilities/util';
 import CustomTag from '../utilities/CustomTag';
-import 'weave-ui-badge';
 
 const componentPrefix = 'weave-badge';
 

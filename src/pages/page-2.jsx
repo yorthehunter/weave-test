@@ -1,10 +1,26 @@
 import React from 'react';
 import Link from 'gatsby-link';
-import Banner from 'weave-react-banner';
+import Banner from '../components/Banner/';
 import Badge from '../components/Badge/';
+
+import '../weave/components/box/index.scss';
 
 const SecondPage = () => (
   <div>
+    <div className="weave-box">
+      <div className="weave-box">
+        Hello
+      </div>
+      <div className="weave-box">
+        Hello
+      </div>
+      <div className="weave-box">
+        Hello
+      </div>
+      <div className="weave-box">
+        Hello
+      </div>
+    </div>
 
     <h1>Hi from the second page</h1>
     <p>Welcome to page 2</p>

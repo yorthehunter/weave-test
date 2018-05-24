@@ -19,13 +19,8 @@ const Badge = (props) => {
     children,
   } = props;
 
-  const componentClasses = [
-    componentPrefix,
-    positionModifier(position, componentPrefix),
-  ];
-
   return (
-    <CustomTag componentClasses={componentClasses} {...props}>
+    <CustomTag componentPrefix={componentPrefix} {...props}>
       {content || children}
     </CustomTag>
   );

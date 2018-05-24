@@ -12,6 +12,7 @@
     "react-helmet": "^5.2.0",
     "weave-react-badge": "file:./src/components/Badge",
     "weave-react-banner": "file:src/components/Badge",
+    "weave-ui-core": "file:./src/weave/core",
     "weave-ui-badge": "file:./src/weave/components/badge",
     "weave-ui-banner": "file:./src/weave/components/banner",
     "weave-ui-button": "file:./src/weave/components/button"

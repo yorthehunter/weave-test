@@ -1,60 +1,28 @@
-const classModifier = (options, selection, prefix, defaultValue) => {
-  if (options.includes(selection)) {
+import options from './constants';
+
+const classModifier = (opts, selection, prefix, defaultValue) => {
+  if (opts.includes(selection)) {
     return `${prefix}--${selection}`;
   } else {
     return defaultValue ? `${prefix}--${defaultValue}` : '';
   }
 };
 
-const buttonTypeModifier = (type, prefix, defaultValue) => {
-  const buttonTypeOpts = [
-    'primary',
-    'secondary',
-    'flat',
-    'cta',
-  ];
+const buttonTypeModifier = (type, prefix, defaultValue) => (
+  classModifier(options.buttonType, type, prefix, defaultValue)
+);
 
-  return classModifier(buttonTypeOpts, type, prefix, defaultValue);
-};
+const sizeModifier = (size, prefix, defaultValue) => (
+  classModifier(options.size, size, prefix, defaultValue)
+);
 
-const sizeModifier = (size, prefix, defaultValue) => {
-  const sizeOpts = [
-    'full-width',
-    'xs',
-    'sm',
-    'md',
-    'lg',
-    'xl',
-  ];
+const positionModifier = (position, prefix, defaultValue) => (
+  classModifier(options.position, position, prefix, defaultValue)
+);
 
-  return classModifier(sizeOpts, size, prefix, defaultValue);
-};
-
-const positionModifier = (position, prefix, defaultValue) => {
-  const positionOpts = [
-    'left',
-    'right',
-    'top',
-    'bottom',
-    'above',
-    'below',
-    'inline',
-    'upper-right',
-  ];
-
-  return classModifier(positionOpts, position, prefix, defaultValue);
-};
-
-const alertStyleModifier = (alertStyle, prefix, defaultValue) => {
-  const alertOpts = [
-    'error',
-    'warning',
-    'info',
-    'success',
-  ];
-
-  return classModifier(alertOpts, alertStyle, prefix, defaultValue);
-};
+const alertStyleModifier = (alertStyle, prefix, defaultValue) => (
+  classModifier(options.alert, alertStyle, prefix, defaultValue)
+);
 
 const camelCaseToDash = (myStr) => myStr.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
 

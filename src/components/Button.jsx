@@ -1,8 +1,10 @@
 import React from 'react';
 import { node, oneOf, bool } from 'prop-types';
 import classNames from 'classnames';
-import 'weave-ui-button';
-// import '../weave/components/button/index.scss';
+// import 'weave-ui-button';
+import '../weave/components/button/index.scss';
+
+const componentPrefix = 'weave-button';
 
 const Button = (props) => {
   const {
@@ -15,12 +17,12 @@ const Button = (props) => {
   } = props;
 
   const componentClasses = classNames([
-    'weave-button',
-    size ? `weave-button--${size}` : '',
-    type ? `weave-button--${type}` : '',
-    responsive ? 'weave-button--responsive' : '',
-    fullWidth ? 'weave-button--full-width' : '',
-    disabled ? 'is-disabled' : '',
+    componentPrefix,
+    size && `${componentPrefix}--${size}`,
+    type && `${componentPrefix}--${type}`,
+    responsive && `${componentPrefix}--responsive`,
+    fullWidth && `${componentPrefix}--full-width`,
+    disabled && 'is-disabled',
   ]);
 
   return (

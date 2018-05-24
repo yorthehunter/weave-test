@@ -34,25 +34,36 @@
 @mixin weave-error-field {
   --bg-color: var(--error-color);
   --font-color: #{$color-white};
+  @include bg;
+  @include color;
 }
 
 @mixin weave-warning-field {
   --bg-color: var(--warning-color);
   --font-color: #{$color-black};
+  @include bg;
+  @include color;
 }
 
 @mixin weave-success-field {
   --bg-color: var(--success-color);
   --font-color: #{$color-white};
+  @include bg;
+  @include color;
 }
 
 @mixin weave-info-field {
   --bg-color: var(--info-color);
   --font-color: #{$color-black};
+  @include bg;
+  @include color;
 }
 
 @mixin weave-neutral-field {
   --bg-color: var(--neutral-color);
   --font-color: #{$color-black};
   --border-color: var(--border-neutral-color);
+  @include bg;
+  @include color;
+  @include border;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import P from '../components/P';
-import Button from '../components/Button';
+import Button from '../components/Button/';
 
 const IndexPage = () => (
   <div>

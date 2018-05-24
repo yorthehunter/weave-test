@@ -1,61 +1,80 @@
-@import '../weave-ui-core/index';
-@import './button-mixins';
+@import '../../core/index';
+
+@mixin weave-button-xs {
+  --py: var(--spacing-none);
+  --px: var(--spacing-sm);
+  --font-size: var(--type-size-f0);
+  --line-height: var(--compact-line-height-f0);
+}
+
+@mixin weave-button-sm {
+  --py: var(--spacing-xs);
+  --px: var(--spacing-md);
+  --font-size: var(--type-size-f1);
+  --line-height: var(--compact-line-height-f1);
+}
+
+@mixin weave-button-md {
+  --py: var(--spacing-sm);
+  --px: var(--spacing-lg);
+  --font-size: var(--type-size-f2);
+  --line-height: var(--compact-line-height-f2);
+}
+
+@mixin weave-button-lg {
+  --py: var(--spacing-md);
+  --px: var(--spacing-xl);
+  --font-size: var(--type-size-f3);
+  --line-height: var(--compact-line-height-f3);
+}
 
 .weave-button {
-  // Default to medium size if no modifier added
-  @include weave-button--md;
-  @include weave-button;
-
   // Defaults
   --border-radius: var(--border-radius-default);
   --display-as: inline-flex;
   --font-color: #{$color-white};
   --bg-color: #{$color-gray};
   --bg-color-hover: #{lighten($color-gray, 10%)};
-  --py: var(--spacing-xs);
-  --px: var(--spacing-sm);
   --elevation: var(--elevated-1);
+  --mr: var(--spacing-sm);
+  --mb: var(--spacing-sm);
+  --border-width: 0;
+
+  // Default to medium size button
+  @include weave-button-md;
+  @include weave-type-and-line-height('f2', false);
+  @include transition(background-color, box-shadow, outline);
+  @include rounded;
+  @include elevated;
+  @include py;
+  @include px;
+  @include margin;
+  @include bg;
+  @include color;
+  @include border;
+  @include display-as;
+  @include typeset;
+
+  cursor: pointer;
+  text-transform: uppercase;
+  justify-content: center;
 
   &.is-disabled {
     cursor: not-allowed;
     opacity: var(--disabled-opacity);
   }
 
-  &:not(.is-disabled):not(.weave-button--flat):hover {
+  &:hover:not(.is-disabled):not(.weave-button--flat) {
     --elevation: var(--elevated-2);
   }
 
-  &:not(.is-disabled):hover {
+  &:hover:not(.is-disabled) {
     --bg-color: var(--bg-color-hover);
-  }
-
-  &:focus:not(.is-disabled) {
-    opacity: 1;
   }
 }
 
 .weave-button--full-width {
   width: 100%;
-}
-
-.weave-button--xs {
-  @include weave-button--xs;
-}
-
-.weave-button--sm {
-  @include weave-button--sm;
-}
-
-.weave-button--md {
-  @include weave-button--md;
-}
-
-.weave-button--lg {
-  @include weave-button--lg;
-}
-
-.weave-button--responsive {
-  @include weave-button--responsive;
 }
 
 .weave-button--cta {
@@ -79,4 +98,38 @@
   --bg-color: transparent;
   --elevation: var(--elevated-0);
   --bg-color-hover: #{$color-black-10};
+}
+
+.weave-button--xs {
+  @include weave-button-xs;
+}
+
+.weave-button--sm {
+  @include weave-button-sm;
+}
+
+.weave-button--md {
+  @include weave-button-md;
+}
+
+.weave-button--lg {
+  @include weave-button-lg;
+}
+
+.weave-button--responsive {
+  @include viewport-equal-to-and-smaller-than('full') {
+    @include weave-button-lg;
+  };
+
+  @include viewport-equal-to-and-smaller-than('lg') {
+    @include weave-button-md;
+  };
+
+  @include viewport-equal-to-and-smaller-than('sm') {
+    @include weave-button-sm;
+  };
+
+  @include viewport-equal-to-and-smaller-than('xs') {
+    width: 100%;
+  };
 }

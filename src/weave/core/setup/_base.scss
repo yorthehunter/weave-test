@@ -22,3 +22,92 @@ $weave-utilities--option: true !default;
   }
   @return $map;
 }
+
+// Defaults
+:root {
+  --pt: initial;
+  --pb: initial;
+  --pl: initial;
+  --pr: initial;
+  --mt: initial;
+  --mb: initial;
+  --ml: initial;
+  --mr: initial;
+  --z-index: 1;
+  --elevation: initial;
+  --border-radius: initial;
+  --bg-color: currentColor;
+  --font-color: currentColor;
+  --border-width: 1px;
+  --border-style: solid;
+  --border-color: currentColor;
+  --display-as: block;
+  --font-size: var(--type-size-f3);
+  --line-height: var(--compact-line-height-f3);
+}
+
+@mixin padding {
+  padding-top: var(--pt);
+  padding-bottom: var(--pb);
+  padding-left: var(--pl);
+  padding-right: var(--pr);
+}
+
+@mixin margin {
+  margin-top: var(--mt);
+  margin-bottom: var(--mb);
+  margin-left: var(--ml);
+  margin-right: var(--mr);
+}
+
+@mixin px {
+  padding-left: var(--px);
+  padding-right: var(--px);
+}
+
+@mixin py {
+  padding-top: var(--py);
+  padding-bottom: var(--py);
+}
+
+@mixin mx {
+  margin-left: var(--mx);
+  margin-right: var(--mx);
+}
+
+@mixin my {
+  margin-top: var(--my);
+  margin-bottom: var(--my);
+}
+
+@mixin border {
+  border-width: var(--border-width);
+  border-style: var(--border-style);
+  border-color: var(--border-color);
+}
+
+@mixin elevated {
+  z-index: var(--z-index);
+  box-shadow: var(--elevation);
+}
+
+@mixin rounded {
+  border-radius: var(--border-radius);
+}
+
+@mixin bg {
+  background-color: var(--bg-color);
+}
+
+@mixin color {
+  color: var(--font-color);
+}
+
+@mixin display-as {
+  display: var(--display-as);
+}
+
+@mixin typeset {
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+}

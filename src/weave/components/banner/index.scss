@@ -1,29 +1,70 @@
-@import '../weave-ui-core/index';
-@import './banner-mixins';
+@import '../../core/index';
+
+@mixin weave-banner--sm {
+  .weave-banner__message {
+    --py: var(--spacing-sm);
+    --px: var(--spacing-md);
+  }
+  --font-size: var(--type-size-f2);
+  --line-height: var(--body-line-height-f2);
+}
+
+@mixin weave-banner--md {
+  .weave-banner__message {
+    --py: var(--spacing-md);
+    --px: var(--spacing-lg);
+  }
+  --font-size: var(--type-size-f3);
+  --line-height: var(--body-line-height-f3);
+}
+
+@mixin weave-banner--lg {
+  .weave-banner__message {
+    --py: var(--spacing-lg);
+    --px: var(--spacing-xl);
+  }
+  --font-size: var(--type-size-f4);
+  --line-height: var(--body-line-height-f4);
+}
 
 .weave-banner {
-  // Default to medium size if no modifier added
-  @include weave-banner--md;
-  @include weave-banner;
   // Defaults
-  --bg-color: var(--neutral-color);
   --display-as: flex;
   --elevation: var(--elevated-2);
-  --font-color: $color-black;
+  --mb: var(--spacing-md);
+  --border-width: 0;
+
+  // Default to medium size if no modifier added
+  @include weave-banner--md;
+  @include weave-neutral-field;
+  @include transition(box-shadow);
+  @include display-as;
+  @include color;
+  @include bg;
+  @include margin;
+  @include elevated;
+  @include typeset;
 }
 
 .weave-banner__message {
+  @include py;
+  @include px;
   flex-grow: 1;
 }
 
 .weave-banner__close {
+  --px: var(--spacing-sm);
+  --py: var(--spacing-sm);
+  --border-width: 0;
+  --mb: 0;
+
+  @include bg;
+  @include border;
+  @include py;
+  @include px;
   @include transition(background-color);
-  background-color: transparent;
-  border: none;
+  @include margin;
   cursor: pointer;
-  padding-left: var(--spacing-sm);
-  padding-right: var(--spacing-sm);
-  margin-right: calc((var(--px) - var(--spacing-sm)) * -1);
 
   &:hover {
     background-color: $color-black-10;
@@ -63,5 +104,15 @@
 }
 
 .weave-banner--responsive {
-  @include weave-banner--responsive;
+  @include viewport-equal-to-and-smaller-than('full') {
+    @include weave-banner--lg;
+  };
+
+  @include viewport-equal-to-and-smaller-than('lg') {
+    @include weave-banner--md;
+  };
+
+  @include viewport-equal-to-and-smaller-than('sm') {
+    @include weave-banner--sm;
+  };
 }

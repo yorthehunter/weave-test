@@ -8292,7 +8292,7 @@ watchpack@^0.2.1:
   dependencies:
     weave-ui-core "file:../../../Library/Caches/Yarn/core"
 
-"weave-ui-core@file:src/weave/core":
+"weave-ui-core@file:./src/weave/core", "weave-ui-core@file:src/weave/core":
   version "1.0.0"
 
 webpack-configurator@^0.3.0:

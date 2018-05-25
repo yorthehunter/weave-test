@@ -1,10 +1,18 @@
+@import '../../core/index';
+
 .weave-box {
   --display-as: flex;
-  --my: var(--spacing-md);
-  --mx: var(--spacing-md);
+  // --my: var(--spacing-md);
+  // --mx: var(--spacing-md);
   --py: var(--spacing-md);
   --px: var(--spacing-md);
   --direction: row;
+
+  @include display-as;
+  @include px;
+  @include py;
+  @include mx;
+  @include my;
 
   display: var(--display-as);
   flex-direction: var(--direction);

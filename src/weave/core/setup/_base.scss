@@ -43,7 +43,7 @@ $weave-utilities--option: true !default;
   --border-color: currentColor;
   --display-as: block;
   --font-size: var(--type-size-f3);
-  --line-height: var(--compact-line-height-f3);
+  --line-height: var(--component-line-height-f3);
 }
 
 @mixin padding {

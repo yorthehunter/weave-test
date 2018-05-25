@@ -1,3 +1,5 @@
+@import '../../core/index.scss';
+
 // Utilities are classes that help lay out a UI properly. They should be used
 // as classes or extended as you see fit.
 // Utility classes get a pass on using !important, but please be aware that they
@@ -14,7 +16,7 @@
 
   // Forces full-width on an element for xs viewports. Useful when you simply
   // want a block of content for mobile viewports.
-  @include viewport-at(xs) {
+  @include viewport-equal-to-and-smaller-than(xs) {
     %full-width--xs,
     .full-width--xs {
       width: 100%;
@@ -116,18 +118,34 @@
     left: -200vw;
   }
 
-  // Vertical pipe used to separate inline elements; e.g. a list of links
-  %separator-pipe,
-  .separator-pipe {
-    border-left: 1px solid color(gray-light);
-    margin-left: space(sm);
-    margin-right: space(sm);
-    align-self: stretch; // When inside a flex box, stretch to fit height
+  %separator,
+  .separator {
+    --border-color: #{$color-gray-light};
+    // When inside a flex box, stretch to fit height
+    align-self: stretch;
+    @include border;
+  }
 
-    // Pipe variant color modifier
-    &--dark {
-      border-left-color: color(black-25);
-    }
+  %separator--dark,
+  .separator--dark {
+    --border-color: #{$color-gray-dark};
+  }
+
+  %separator--vertical,
+  .separator--vertical {
+    --ml: var(--spacing-sm);
+    --mr: var(--spacing-sm);
+    --border-width: 0px 1px 0px 0px;
+    width: 0px;
+    @include margin;
+  }
+
+  %separator--horizontal,
+  .separator--horizontal {
+    --mt: var(--spacing-sm);
+    --mb: var(--spacing-sm);
+    height: 1px;
+    @include margin;
   }
 
   %text-center,

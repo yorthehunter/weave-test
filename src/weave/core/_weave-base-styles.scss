@@ -11,6 +11,7 @@
     // vertical grid (0.5rem). Generally keeping to that grid (or multiples of it)
     // gives us a cleaner layout and typography hierarchy overall.
     font-size: var(--font-size-pixel-base);
+    font-weight: var(--font-weight-medium);
   }
 
   body {

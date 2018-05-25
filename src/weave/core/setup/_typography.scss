@@ -26,15 +26,15 @@
   --body-line-height-f1: 1.5rem;
   --body-line-height-f0: 1.5rem;
 
-  --compact-line-height-f8: 5rem;
-  --compact-line-height-f7: 3rem;
-  --compact-line-height-f6: 3rem;
-  --compact-line-height-f5: 2rem;
-  --compact-line-height-f4: 2rem;
-  --compact-line-height-f3: 1rem;
-  --compact-line-height-f2: 1rem;
-  --compact-line-height-f1: 1rem;
-  --compact-line-height-f0: 1rem;
+  --component-line-height-f8: 5rem;
+  --component-line-height-f7: 3rem;
+  --component-line-height-f6: 3rem;
+  --component-line-height-f5: 2rem;
+  --component-line-height-f4: 2rem;
+  --component-line-height-f3: 1rem;
+  --component-line-height-f2: 1rem;
+  --component-line-height-f1: 1rem;
+  --component-line-height-f0: 1rem;
 }
 
 // Defaults
@@ -54,7 +54,7 @@
   @if $body {
     line-height: var(--body-line-height-#{$size});
   } @else {
-    line-height: var(--compact-line-height-#{$size});
+    line-height: var(--component-line-height-#{$size});
   }
 }
 

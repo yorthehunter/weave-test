@@ -14,9 +14,10 @@
   --bg-color: #{$color-white};
   --border: var(--border-neutral);
 
-  box-shadow: var(--elevation);
-  border-radius: var(--border-radius);
-  background-color: var(--bg-color);
+  @include elevated;
+  @include rounded;
+  @include bg;
+
 }
 
 // .weave-card--hoverable gives the card a higher "elevation" on hover

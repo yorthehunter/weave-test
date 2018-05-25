@@ -10,6 +10,8 @@ const IndexPage = () => (
     <P>Now go build something great.</P>
     <Link to="/page-2/">Go to page 2</Link>
 
+    <button className="some-test-button">Button</button>
+
     <div>
       <Button size="xs">Button</Button>
       <Button size="sm">Button</Button>

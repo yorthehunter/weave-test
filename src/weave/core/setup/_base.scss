@@ -53,13 +53,6 @@ $weave-utilities--option: true !default;
   padding-right: var(--pr);
 }
 
-@mixin margin {
-  margin-top: var(--mt);
-  margin-bottom: var(--mb);
-  margin-left: var(--ml);
-  margin-right: var(--mr);
-}
-
 @mixin px {
   padding-left: var(--px);
   padding-right: var(--px);
@@ -68,6 +61,13 @@ $weave-utilities--option: true !default;
 @mixin py {
   padding-top: var(--py);
   padding-bottom: var(--py);
+}
+
+@mixin margin {
+  margin-top: var(--mt);
+  margin-bottom: var(--mb);
+  margin-left: var(--ml);
+  margin-right: var(--mr);
 }
 
 @mixin mx {
@@ -110,4 +110,8 @@ $weave-utilities--option: true !default;
 @mixin typeset {
   font-size: var(--font-size);
   line-height: var(--line-height);
+}
+
+@mixin clickable {
+  cursor: pointer;
 }

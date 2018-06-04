@@ -42,88 +42,88 @@
 
     %pt-#{$size},
     .pt-#{$size} {
-      --py: var(--spacing-#{$size});
-      padding-top: var(--py);
+      --pt: var(--spacing-#{$size});
+      padding-top: var(--pt);
     }
 
     %pb-#{$size},
     .pb-#{$size} {
-      --py: var(--spacing-#{$size});
-      padding-bottom: var(--py);
+      --pb: var(--spacing-#{$size});
+      padding-bottom: var(--pb);
     }
 
     %pl-#{$size},
     .pl-#{$size} {
-      --px: var(--spacing-#{$size});
-      padding-left: var(--px);
+      --pl: var(--spacing-#{$size});
+      padding-left: var(--pl);
     }
 
     %pr-#{$size},
     .pr-#{$size} {
-      --px: var(--spacing-#{$size});
-      padding-right: var(--px);
+      --pr: var(--spacing-#{$size});
+      padding-right: var(--pr);
     }
 
     %mx-#{$size},
     .mx-#{$size} {
       --mx: var(--spacing-#{$size});
-      padding-left: var(--mx);
-      padding-right: var(--mx);
+      margin-left: var(--mx);
+      margin-right: var(--mx);
     }
 
     %my-#{$size},
     .my-#{$size} {
       --my: var(--spacing-#{$size});
-      padding-top: var(--my);
-      padding-bottom: var(--my);
+      margin-top: var(--my);
+      margin-bottom: var(--my);
     }
 
     %mt-#{$size},
     .mt-#{$size} {
-      --my: var(--spacing-#{$size});
-      padding-top: var(--my);
+      --mt: var(--spacing-#{$size});
+      margin-top: var(--mt);
     }
 
     %mb-#{$size},
     .mb-#{$size} {
-      --my: var(--spacing-#{$size});
-      padding-bottom: var(--my);
+      --mb: var(--spacing-#{$size});
+      margin-bottom: var(--mb);
     }
 
     %ml-#{$size},
     .ml-#{$size} {
-      --mx: var(--spacing-#{$size});
-      padding-left: var(--mx);
+      --ml: var(--spacing-#{$size});
+      margin-left: var(--ml);
     }
 
     %mr-#{$size},
     .mr-#{$size} {
-      --mx: var(--spacing-#{$size});
-      padding-right: var(--mx);
+      --mr: var(--spacing-#{$size});
+      margin-right: var(--mr);
     }
   }
 
   // Strips a list of its styles
   %list-unstyled,
   .list-unstyled {
+    @extend %pl-none;
     list-style: none;
-    padding-left: 0;
   }
 
   // Use this to hide an element but allow it to still be readable in the DOM
   // e.g. for screenreaders
   %hidden-from-sight,
   .hidden-from-sight {
-    position: absolute;
+    position: absolute !important;
     left: -200vw;
   }
 
   %separator,
   .separator {
     --border-color: #{$color-gray-light};
+    @include border;
     // When inside a flex box, stretch to fit height
     align-self: stretch;
-    @include border;
   }
 
   %separator--dark,
@@ -143,8 +143,9 @@
   %separator--horizontal,
   .separator--horizontal {
     --mt: var(--spacing-sm);
-    --mb: var(--spacing-sm);
-    height: 1px;
+    --mb: calc(var(--spacing-sm) - 1px);
+    --border-width: 1px 0px 0px 0px;
+    height: 0px;
     @include margin;
   }
 
@@ -158,8 +159,8 @@
     text-decoration: line-through;
   }
 
-  %text-deemphasize,
-  .text-deemphasize {
+  %text-secondary,
+  .text-secondary {
     color: var(--text-secondary-color);
     font-style: italic;
   }

@@ -22,8 +22,8 @@ const SecondPage = () => (
       <div className="weave-box">
         Hello
       </div>
-      <span className="separator separator--horizontal"></span>
     </div>
+    <div className="separator separator--horizontal"></div>
 
     <h1>Hi from the second page</h1>
     <p>Welcome to page 2</p>
@@ -36,16 +36,24 @@ const SecondPage = () => (
     <Banner content="Banner content goes here." type="error" visible />
     <Banner content="Banner content goes here." type="warning" visible />
     <Banner content="Banner content goes here." type="success" visible />
+    <Banner content="Flat banner" type="error" flat visible />
     <Banner content="Banner content goes here." size="sm" visible />
     <Banner content="Banner content goes here." size="md" visible />
     <Banner content="Banner content goes here." size="lg" visible />
     <Banner content="Banner content goes here." responsive visible />
-    <Banner content="Banner content goes here." dismissable={false} />
+    <Banner content="Banner content goes here." dismissable={false} visible />
+    <Banner html="Hi there! This banner contains <strong>html</strong>!" dismissable={false} visible />
+    <Banner dismissable={false} visible>
+      Banner containing any children, including other components.
+      <Badge content="?" />
+    </Banner>
 
-    <Badge content="!" />
-    <Badge content="!" position="inline" />
+
+
+    <p className="weave-p">This line of text has a badge.<Badge content="!" /></p>
+    <p className="weave-p">This line of text has an inline badge with no content.<Badge position="inline" /></p>
     <div style={{ position: 'relative', height: '5rem', outline: '1px solid black' }}>
-      <Badge content="!" position="upper-right" />
+      <p className="weave-p">The container div has a badge.</p>
     </div>
   </div>
 );

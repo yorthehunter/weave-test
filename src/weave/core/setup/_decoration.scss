@@ -18,7 +18,6 @@
   --border-radius-xl: 8px;
   --border-radius-pill: 100vw;
   --border-radius-circle: 100%;
-
   --border-neutral: 1px solid --border-neutral-color;
 }
 
@@ -31,39 +30,67 @@
   --border-radius-default: var(--border-radius-sm);
 }
 
+@mixin field {
+  @include bg;
+  @include color;
+  @include border;
+}
+
 @mixin weave-error-field {
   --bg-color: var(--error-color);
   --font-color: #{$color-white};
-  @include bg;
-  @include color;
+  --border-width: 0;
+  @include field;
 }
 
 @mixin weave-warning-field {
   --bg-color: var(--warning-color);
   --font-color: #{$color-black};
-  @include bg;
-  @include color;
+  --border-width: 0;
+  @include field;
 }
 
 @mixin weave-success-field {
   --bg-color: var(--success-color);
   --font-color: #{$color-white};
-  @include bg;
-  @include color;
+  --border-width: 0;
+  @include field;
 }
 
 @mixin weave-info-field {
   --bg-color: var(--info-color);
   --font-color: #{$color-black};
-  @include bg;
-  @include color;
+  --border-width: 0;
+  @include field;
 }
 
 @mixin weave-neutral-field {
   --bg-color: var(--neutral-color);
   --font-color: #{$color-black};
   --border-color: var(--border-neutral-color);
-  @include bg;
-  @include color;
-  @include border;
+  @include field;
 }
+
+.u-bg { @include bg; }
+.u-bg.accent  { --bg-color: var(--accent-color);  }
+.u-bg.neutral { --bg-color: var(--neutral-color); }
+.u-bg.success { --bg-color: var(--success-color); }
+.u-bg.warning { --bg-color: var(--warning-color); }
+.u-bg.info    { --bg-color: var(--info-color);    }
+.u-bg.error   { --bg-color: var(--error-color);   }
+
+.u-color { @include color; }
+.u-color.accent  { --font-color: var(--text-accent-color);  }
+.u-color.neutral { --font-color: var(--text-neutral-color); }
+.u-color.success { --font-color: var(--text-success-color); }
+.u-color.warning { --font-color: var(--text-warning-color); }
+.u-color.info    { --font-color: var(--text-info-color);    }
+.u-color.error   { --font-color: var(--text-error-color);   }
+
+.u-border { --border-width: 1px; @include border; }
+.u-border.accent  { --border-color: var(--border-accent-color);  }
+.u-border.neutral { --border-color: var(--border-neutral-color); }
+.u-border.success { --border-color: var(--border-success-color); }
+.u-border.warning { --border-color: var(--border-warning-color); }
+.u-border.info    { --border-color: var(--border-info-color);    }
+.u-border.error   { --border-color: var(--border-error-color);   }

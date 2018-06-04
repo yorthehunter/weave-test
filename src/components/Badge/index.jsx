@@ -1,8 +1,9 @@
 import React from 'react';
 import { string, oneOf } from 'prop-types';
-import 'weave-ui-badge';
+// import 'weave-ui-badge';
 import { positionModifier } from '../utilities/util';
 import CustomTag from '../utilities/CustomTag';
+import '../../weave/components/badge/index.scss';
 
 const componentPrefix = 'weave-badge';
 
@@ -19,8 +20,13 @@ const Badge = (props) => {
     children,
   } = props;
 
+  const componentClasses = [
+    componentPrefix,
+    positionModifier(position, componentPrefix),
+  ];
+
   return (
-    <CustomTag componentPrefix={componentPrefix} {...props}>
+    <CustomTag componentClasses={componentClasses} {...props}>
       {content || children}
     </CustomTag>
   );

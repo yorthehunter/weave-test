@@ -1,5 +1,18 @@
 @import '../../core/index';
 
+@mixin weave-banner {
+  // Default to medium size if no modifier added
+  @include weave-banner--md;
+  @include weave-neutral-field;
+  @include transition(box-shadow);
+  @include display-as;
+  @include color;
+  @include bg;
+  @include margin;
+  @include elevated;
+  @include typeset;
+}
+
 @mixin weave-banner--sm {
   .weave-banner__message {
     --py: var(--spacing-sm);
@@ -34,16 +47,7 @@
   --mb: var(--spacing-md);
   --border-width: 0;
 
-  // Default to medium size if no modifier added
-  @include weave-banner--md;
-  @include weave-neutral-field;
-  @include transition(box-shadow);
-  @include display-as;
-  @include color;
-  @include bg;
-  @include margin;
-  @include elevated;
-  @include typeset;
+  @include weave-banner;
 }
 
 .weave-banner__message {
@@ -64,7 +68,7 @@
   @include px;
   @include transition(background-color);
   @include margin;
-  cursor: pointer;
+  @include clickable;
 
   &:hover {
     background-color: $color-black-10;

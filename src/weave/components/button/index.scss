@@ -1,7 +1,7 @@
 @import '../../core/index';
 
 @mixin weave-button {
-  // Default to medium size button
+  // Default to medium size if no modifier added
   @include weave-button-md;
   @include transition(background-color, box-shadow, outline);
   @include rounded;
@@ -14,8 +14,8 @@
   @include border;
   @include display-as;
   @include typeset;
+  @include clickable;
 
-  cursor: pointer;
   text-transform: uppercase;
   justify-content: center;
 
@@ -74,19 +74,6 @@
   --border-width: 0;
   --font-size: var(--type-size-f2);
   --line-height: var(--component-line-height-f2);
-
-  @include weave-button;
-}
-
-.some-test-button {
-  --border-radius: var(--border-radius-pill);
-  --display-as: block;
-  --font-color: #{$color-black};
-  --bg-color: #{$color-mint};
-  --bg-color-hover: #{lighten($color-mint, 10%)};
-  --font-size: var(--type-size-f5);
-  --line-height: var(--component-line-height-f5);
-  --border-color: #{$color-mint-dark};
 
   @include weave-button;
 }

@@ -38,6 +38,7 @@ class Banner extends React.Component {
       responsive,
       dismissable,
       flat,
+      html,
     } = this.props;
 
     const iconColor = () => {
@@ -67,7 +68,17 @@ class Banner extends React.Component {
           {...this.props}
           componentClasses={componentClasses}
         >
-          <p className={`${componentPrefix}__message`} dangerouslySetInnerHTML={{ __html: content || children }} />
+          {
+            html ?
+              <p
+                className={`${componentPrefix}__message`}
+                dangerouslySetInnerHTML={{ __html: html }}
+              />
+              :
+              <p className={`${componentPrefix}__message`}>
+                {content || children}
+              </p>
+          }
           {
             dismissable &&
             <button
@@ -93,6 +104,7 @@ const defaultProps = {
   responsive: false,
   dismissable: true,
   flat: false,
+  html: null,
   children: null,
 };
 
@@ -117,6 +129,8 @@ const propTypes = {
   responsive: bool,
   dismissable: bool,
   flat: bool,
+  /** Banner can accept html, useful for outside sources of content */
+  html: string,
   /** Banner content (if props.content isn't specified) */
   children: node,
 };

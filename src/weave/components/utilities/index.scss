@@ -26,78 +26,84 @@
   }
 
   @each $size in ['xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'none'] {
-    %px-#{$size},
-    .px-#{$size} {
+    %p--#{$size},
+    .p--#{$size} {
+      --padding: var(--spacing-#{$size});
+      padding: var(--padding);
+    }
+
+    %px--#{$size},
+    .px--#{$size} {
       --px: var(--spacing-#{$size});
       padding-left: var(--px);
       padding-right: var(--px);
     }
 
-    %py-#{$size},
-    .py-#{$size} {
+    %py--#{$size},
+    .py--#{$size} {
       --py: var(--spacing-#{$size});
       padding-top: var(--py);
       padding-bottom: var(--py);
     }
 
-    %pt-#{$size},
-    .pt-#{$size} {
+    %pt--#{$size},
+    .pt--#{$size} {
       --pt: var(--spacing-#{$size});
       padding-top: var(--pt);
     }
 
-    %pb-#{$size},
-    .pb-#{$size} {
+    %pb--#{$size},
+    .pb--#{$size} {
       --pb: var(--spacing-#{$size});
       padding-bottom: var(--pb);
     }
 
-    %pl-#{$size},
-    .pl-#{$size} {
+    %pl--#{$size},
+    .pl--#{$size} {
       --pl: var(--spacing-#{$size});
       padding-left: var(--pl);
     }
 
-    %pr-#{$size},
-    .pr-#{$size} {
+    %pr--#{$size},
+    .pr--#{$size} {
       --pr: var(--spacing-#{$size});
       padding-right: var(--pr);
     }
 
-    %mx-#{$size},
-    .mx-#{$size} {
+    %mx--#{$size},
+    .mx--#{$size} {
       --mx: var(--spacing-#{$size});
       margin-left: var(--mx);
       margin-right: var(--mx);
     }
 
-    %my-#{$size},
-    .my-#{$size} {
+    %my--#{$size},
+    .my--#{$size} {
       --my: var(--spacing-#{$size});
       margin-top: var(--my);
       margin-bottom: var(--my);
     }
 
-    %mt-#{$size},
-    .mt-#{$size} {
+    %mt--#{$size},
+    .mt--#{$size} {
       --mt: var(--spacing-#{$size});
       margin-top: var(--mt);
     }
 
-    %mb-#{$size},
-    .mb-#{$size} {
+    %mb--#{$size},
+    .mb--#{$size} {
       --mb: var(--spacing-#{$size});
       margin-bottom: var(--mb);
     }
 
-    %ml-#{$size},
-    .ml-#{$size} {
+    %ml--#{$size},
+    .ml--#{$size} {
       --ml: var(--spacing-#{$size});
       margin-left: var(--ml);
     }
 
-    %mr-#{$size},
-    .mr-#{$size} {
+    %mr--#{$size},
+    .mr--#{$size} {
       --mr: var(--spacing-#{$size});
       margin-right: var(--mr);
     }
@@ -106,7 +112,7 @@
   // Strips a list of its styles
   %list-unstyled,
   .list-unstyled {
-    @extend %pl-none;
+    @extend %pl--none;
     list-style: none;
   }
 

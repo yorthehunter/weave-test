@@ -115,3 +115,7 @@ $weave-utilities--option: true !default;
 @mixin clickable {
   cursor: pointer;
 }
+
+@mixin unstyled-list {
+  list-style: none;
+}

@@ -2,13 +2,17 @@ import React from 'react';
 import Link from 'gatsby-link';
 import Banner from '../components/Banner/';
 import Badge from '../components/Badge/';
+import Card from '../components/Card/';
 
 import '../weave/components/box/index.scss';
 import '../weave/components/utilities/index.scss';
 
 const SecondPage = () => (
   <div>
+    <Card inset="lg">Hello</Card>
+
     <div className="weave-box">
+
       <div className="weave-box">
         Hello
       </div>

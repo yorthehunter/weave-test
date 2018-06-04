@@ -1,3 +1,5 @@
+@import '../../core/index';
+
 // Collections are groupings of content that are visually contained and organized.
 // They are useful for sectioning content in busy layouts.
 //
@@ -6,12 +8,97 @@
 //   <li class="weave-collection__item">Some collection item</li>
 // </ul>
 
-.weave-collection {
-  --elevation: var(--elevated-0);
-
-  @extend %u-list-unstyled !optional;
-
+@mixin weave-collection {
+  @include border;
+  @include elevated;
+  @include rounded;
+  @include bg;
+  @include unstyled-list;
+  @include elevated;
+  padding-left: 0;
 }
+
+@mixin weave-collection-sm {
+  --py: var(--spacing-sm);
+  --px: var(--spacing-sm);
+  --font-size: var(--type-size-f1);
+  --line-height: var(--component-line-height-f1);
+}
+
+@mixin weave-collection-md {
+  --py: var(--spacing-md);
+  --px: var(--spacing-md);
+  --font-size: var(--type-size-f2);
+  --line-height: var(--component-line-height-f2);
+}
+
+@mixin weave-collection-lg {
+  --py: var(--spacing-lg);
+  --px: var(--spacing-lg);
+  --font-size: var(--type-size-f3);
+  --line-height: var(--component-line-height-f3);
+}
+
+.weave-collection {
+  --border-color: var(--border-neutral-color);
+  --py: var(--spacing-md);
+  --px: var(--spacing-md);
+  --elevation: var(--elevated-0);
+  --bg-color: #{$color-white};
+  --border-radius: var(--border-radius-default);
+
+  @include weave-collection;
+}
+
+.weave-collection__item {
+  @include py;
+  @include px;
+  @include typeset;
+}
+
+.weave-collection__item + .weave-collection__item {
+  --border-width: 1px 0 0 0;
+  @include border;
+}
+
+.weave-collection--sm > .weave-collection__item {
+  @include weave-collection-sm;
+}
+
+.weave-collection--md > .weave-collection__item {
+  @include weave-collection-md;
+}
+
+.weave-collection--lg > .weave-collection__item {
+  @include weave-collection-lg;
+}
+
+.weave-collection--hoverable {
+  @include transition(background-color);
+
+  &:hover {
+    --bg-color: var(--neutral-color);
+  }
+}
+
+.weave-collection--hoverable > .weave-collection__item {
+  &:hover {
+    --elevation: var(--elevated-1);
+    --bg-color: #{$color-white};
+    @include transition(box-shadow);
+    @include elevated;
+    @include bg;
+  }
+
+  &.is-active {
+    --elevation: var(--elevated-1);
+    --z-index: var(--z-index-1);
+    --bg-color: #{$color-black-10};
+    @include elevated;
+    @include bg;
+  }
+}
+
 
 // Calculating the inset this way allows us to account for borders between rows
 $collection-inset--sm: calc(#{space(sm)} - 1px) space(sm) space(sm);
@@ -19,95 +106,25 @@ $collection-inset--md: calc(#{space(md)} - 1px) space(md) space(md);
 $collection-inset--lg: calc(#{space(lg)} - 1px) space(lg) space(lg);
 $collection-border: 1px solid color(gray-light);
 
-.weave-collection {
-  // remove list styles when appropriate
-  @extend %u-list-unstyled !optional;
-
-  &--hoverable > .weave-collection__item {
-    &:hover {
-      @extend %elevated--1;
-      @include transition(box-shadow);
-    }
-
-    &.is-active {
-      @extend %elevated--2;
-    }
-  }
-
-  &--pad-sm {
-    & > .weave-collection__item {
-      padding: $collection-inset--sm;
-    }
-  }
-
-  &--pad-md {
-    & > .weave-collection__item {
-      padding: $collection-inset--md;
-    }
-  }
-
-  &--pad-lg {
-    & > .weave-collection__item {
-      padding: $collection-inset--lg;
-    }
-  }
-}
-
-.weave-collection__item {
-  border-left: $collection-border;
-  border-right: $collection-border;
-  border-top: $collection-border;
-
-  &:first-of-type {
-    border-top-left-radius: $rounded--default;
-    border-top-right-radius: $rounded--default;
-  }
-
-  &:last-of-type {
-    border-bottom: $collection-border;
-    border-bottom-left-radius: $rounded--default;
-    border-bottom-right-radius: $rounded--default;
-    margin-bottom: -1px; // Fix single pixel margin off
-  }
-}
-
-
 // Status indicators
 //<li class="weave-collection__item weave-collection-indicator">
 .weave-collection-indicator {
-  padding-left: space(lg) !important;
+  padding-left: var(--spacing-lg) !important;
   position: relative;
 
   &::before {
-    bottom: space(xs);
     content: '';
-    left: space(xs);
     position: absolute;
-    top: space(xs);
-    width: space(sm);
-  }
-
-  &--neutral {
-    &::before {
-      background-color: color(gray-light);
-    }
-  }
-
-  &--accent {
-    &::before {
-      background-color: color(mint-dark);
-    }
-  }
-
-  &--success {
-    &::before {
-      background-color: color(kiwi);
-    }
-  }
-
-  &--alert {
-    &::before {
-      background-color: color(watermelon);
-    }
+    width: var(--spacing-sm);
+    bottom: var(--spacing-xs);
+    left: var(--spacing-xs);
+    top: var(--spacing-xs);
   }
 }
+
+.weave-collection-indicator--neutral::before { background-color: var(--neutral-color); }
+.weave-collection-indicator--accent::before  { background-color: var(--border-accent-color); }
+.weave-collection-indicator--success::before { background-color: var(--border-success-color); }
+.weave-collection-indicator--info::before    { background-color: var(--border-info-color); }
+.weave-collection-indicator--warning::before { background-color: var(--border-warning-color); }
+.weave-collection-indicator--alert::before   { background-color: var(--border-error-color); }

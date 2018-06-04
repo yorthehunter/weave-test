@@ -2,6 +2,7 @@ import React from 'react';
 import { string, node, bool } from 'prop-types';
 import CustomTag from '../utilities/CustomTag';
 import { sizeModifier } from '../utilities/util';
+import '../../weave/components/card/index.scss';
 
 const componentPrefix = 'weave-card';
 
@@ -18,8 +19,8 @@ const Card = (props) => {
 
   const componentClasses = [
     componentPrefix,
-    sizeModifier(inset, 'u-inset'),
-    isHoverable ? 'weave-card--hoverable' : null,
+    sizeModifier(inset, 'p'),
+    isHoverable ? `${componentPrefix}--hoverable` : null,
   ];
 
   return (

@@ -28,83 +28,83 @@
   @each $size in ['xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'none'] {
     %p--#{$size},
     .p--#{$size} {
-      --padding: var(--spacing-#{$size});
+      --padding: var(--spacing-#{$size}) !important;
       padding: var(--padding);
     }
 
     %px--#{$size},
     .px--#{$size} {
-      --px: var(--spacing-#{$size});
+      --px: var(--spacing-#{$size}) !important;
       padding-left: var(--px);
       padding-right: var(--px);
     }
 
     %py--#{$size},
     .py--#{$size} {
-      --py: var(--spacing-#{$size});
+      --py: var(--spacing-#{$size}) !important;
       padding-top: var(--py);
       padding-bottom: var(--py);
     }
 
     %pt--#{$size},
     .pt--#{$size} {
-      --pt: var(--spacing-#{$size});
+      --pt: var(--spacing-#{$size}) !important;
       padding-top: var(--pt);
     }
 
     %pb--#{$size},
     .pb--#{$size} {
-      --pb: var(--spacing-#{$size});
+      --pb: var(--spacing-#{$size}) !important;
       padding-bottom: var(--pb);
     }
 
     %pl--#{$size},
     .pl--#{$size} {
-      --pl: var(--spacing-#{$size});
+      --pl: var(--spacing-#{$size}) !important;
       padding-left: var(--pl);
     }
 
     %pr--#{$size},
     .pr--#{$size} {
-      --pr: var(--spacing-#{$size});
+      --pr: var(--spacing-#{$size}) !important;
       padding-right: var(--pr);
     }
 
     %mx--#{$size},
     .mx--#{$size} {
-      --mx: var(--spacing-#{$size});
+      --mx: var(--spacing-#{$size}) !important;
       margin-left: var(--mx);
       margin-right: var(--mx);
     }
 
     %my--#{$size},
     .my--#{$size} {
-      --my: var(--spacing-#{$size});
+      --my: var(--spacing-#{$size}) !important;
       margin-top: var(--my);
       margin-bottom: var(--my);
     }
 
     %mt--#{$size},
     .mt--#{$size} {
-      --mt: var(--spacing-#{$size});
+      --mt: var(--spacing-#{$size}) !important;
       margin-top: var(--mt);
     }
 
     %mb--#{$size},
     .mb--#{$size} {
-      --mb: var(--spacing-#{$size});
+      --mb: var(--spacing-#{$size}) !important;
       margin-bottom: var(--mb);
     }
 
     %ml--#{$size},
     .ml--#{$size} {
-      --ml: var(--spacing-#{$size});
+      --ml: var(--spacing-#{$size}) !important;
       margin-left: var(--ml);
     }
 
     %mr--#{$size},
     .mr--#{$size} {
-      --mr: var(--spacing-#{$size});
+      --mr: var(--spacing-#{$size}) !important;
       margin-right: var(--mr);
     }
   }

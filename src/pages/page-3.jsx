@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'gatsby-link';
+import Button from '../components/Button/';
 import Card from '../components/Card/';
 import Collection from '../components/Collection/';
 import CollectionItem from '../components/Collection/CollectionItem';
@@ -33,7 +34,7 @@ const ThirdPage = () => (
 
     <Card inset="none">
       <Collection isHoverable size="sm">
-        <CollectionItem>Item</CollectionItem>
+        <CollectionItem><Button type="flat">Item</Button></CollectionItem>
         <CollectionItem>Item</CollectionItem>
       </Collection>
     </Card>

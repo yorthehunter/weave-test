@@ -99,16 +99,10 @@
   }
 }
 
-
-// Calculating the inset this way allows us to account for borders between rows
-$collection-inset--sm: calc(#{space(sm)} - 1px) space(sm) space(sm);
-$collection-inset--md: calc(#{space(md)} - 1px) space(md) space(md);
-$collection-inset--lg: calc(#{space(lg)} - 1px) space(lg) space(lg);
-$collection-border: 1px solid color(gray-light);
-
 // Status indicators
 //<li class="weave-collection__item weave-collection-indicator">
 .weave-collection-indicator {
+  // Needs to make sure the space is available for the status indicator
   padding-left: var(--spacing-lg) !important;
   position: relative;
 

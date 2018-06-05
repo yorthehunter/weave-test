@@ -36,37 +36,44 @@
   @include border;
 }
 
+@mixin weave-accent-field {
+  --bg-color: var(--accent-color);
+  --font-color: var(--text-on-dark-bg);
+  --border-width: 0;
+  @include field;
+}
+
 @mixin weave-error-field {
   --bg-color: var(--error-color);
-  --font-color: #{$color-white};
+  --font-color: var(--text-on-dark-bg);
   --border-width: 0;
   @include field;
 }
 
 @mixin weave-warning-field {
   --bg-color: var(--warning-color);
-  --font-color: #{$color-black};
+  --font-color: var(--text-on-light-bg);
   --border-width: 0;
   @include field;
 }
 
 @mixin weave-success-field {
   --bg-color: var(--success-color);
-  --font-color: #{$color-white};
+  --font-color: var(--text-on-light-bg);
   --border-width: 0;
   @include field;
 }
 
 @mixin weave-info-field {
   --bg-color: var(--info-color);
-  --font-color: #{$color-black};
+  --font-color: var(--text-on-light-bg);
   --border-width: 0;
   @include field;
 }
 
 @mixin weave-neutral-field {
   --bg-color: var(--neutral-color);
-  --font-color: #{$color-black};
+  --font-color: var(--text-on-light-bg);
   --border-color: var(--border-neutral-color);
   @include field;
 }

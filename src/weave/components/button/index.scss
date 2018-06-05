@@ -104,21 +104,10 @@
   --bg-color-hover: #{$color-black-10};
 }
 
-.weave-button--xs {
-  @include weave-button-xs;
-}
-
-.weave-button--sm {
-  @include weave-button-sm;
-}
-
-.weave-button--md {
-  @include weave-button-md;
-}
-
-.weave-button--lg {
-  @include weave-button-lg;
-}
+.weave-button--xs { @include weave-button-xs; }
+.weave-button--sm { @include weave-button-sm; }
+.weave-button--md { @include weave-button-md; }
+.weave-button--lg { @include weave-button-lg; }
 
 .weave-button--responsive {
   @include viewport-equal-to-and-smaller-than('full') {

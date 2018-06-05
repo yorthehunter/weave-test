@@ -39,11 +39,13 @@ $color-white-25: rgba(255, 255, 255, .25);
   --text-warning-color: #{$color-watermelon};
   --text-info-color: #{$color-grape};
   --text-neutral-color: #{$color-gray};
+  --text-on-dark-bg: #{$color-white};
+  --text-on-light-bg: #{$color-black};
 
   --link-color: #{$color-blueberry};
 
-  --accent-color: #{$color-mint};
-  --success-color: #{$color-mint-dark};
+  --accent-color: #{$color-mint-dark};
+  --success-color: #{$color-kiwi};
   --error-color: #{$color-watermelon};
   --info-color: #{$color-mint-lightest};
   --warning-color: #{$color-banana};

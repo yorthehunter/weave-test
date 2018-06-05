@@ -1,11 +1,20 @@
-export const buttonType = [
+export const buttonTypes = [
   'primary',
   'secondary',
   'flat',
   'cta',
 ];
 
-export const size = [
+export const types = [
+  'error',
+  'success',
+  'warning',
+  'info',
+  'neutral',
+  'accent',
+];
+
+export const sizes = [
   'full-width',
   'xs',
   'sm',
@@ -16,7 +25,7 @@ export const size = [
   'none',
 ];
 
-export const position = [
+export const positions = [
   'left',
   'right',
   'top',
@@ -27,7 +36,7 @@ export const position = [
   'upper-right',
 ];
 
-export const alert = [
+export const alerts = [
   'error',
   'warning',
   'info',
@@ -35,8 +44,9 @@ export const alert = [
 ];
 
 export default {
-  buttonType,
-  size,
-  position,
-  alert,
+  types,
+  buttonTypes,
+  sizes,
+  positions,
+  alerts,
 };

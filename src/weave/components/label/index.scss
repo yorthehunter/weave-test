@@ -1,0 +1,72 @@
+@import '../../core/index';
+
+@mixin weave-label {
+  // Default to medium size if no modifier added
+  @include weave-label-md;
+  // Default to neutral decoration if no modifier added
+  @include weave-neutral-field;
+  @include display-as;
+  @include rounded;
+  @include bg;
+  @include color;
+  @include typeset;
+  @include py;
+  @include px;
+}
+
+@mixin weave-label-sm {
+  --py: var(--spacing-none);
+  --px: var(--spacing-xs);
+  --font-size: var(--type-size-f0);
+  --line-height: var(--component-line-height-f0);
+  text-transform: uppercase;
+}
+
+@mixin weave-label-md {
+  --py: var(--spacing-xs);
+  --px: var(--spacing-sm);
+  --font-size: var(--type-size-f1);
+  --line-height: var(--component-line-height-f1);
+}
+
+@mixin weave-label-lg {
+  --py: var(--spacing-sm);
+  --px: var(--spacing-md);
+  --font-size: var(--type-size-f2);
+  --line-height: var(--component-line-height-f2);
+}
+
+.weave-label {
+  // Defaults
+  --display-as: inline-flex;
+  --bg-color: var(--text-neutral-color);
+  --border-radius: var(--border-radius-default);
+  --font-color: #{$color-black};
+
+  @include weave-label;
+}
+
+.weave-label--accent  { @include weave-accent-field; }
+.weave-label--success { @include weave-success-field; }
+.weave-label--error   { @include weave-error-field; }
+.weave-label--info    { @include weave-info-field; }
+.weave-label--warning { @include weave-warning-field; }
+.weave-label--neutral { @include weave-neutral-field; }
+
+.weave-label--sm { @include weave-label-sm; }
+.weave-label--md { @include weave-label-md; }
+.weave-label--lg { @include weave-label-lg; }
+
+.weave-label--responsive {
+  @include viewport-equal-to-and-smaller-than('full') {
+    @include weave-label-lg;
+  };
+
+  @include viewport-equal-to-and-smaller-than('lg') {
+    @include weave-label-md;
+  };
+
+  @include viewport-equal-to-and-smaller-than('sm') {
+    @include weave-label-sm;
+  };
+}

@@ -21,10 +21,10 @@ const IndexPage = () => (
     </div>
 
     <div>
-      <Button fullWidth size="xs">Button</Button>
-      <Button fullWidth size="sm">Button</Button>
-      <Button fullWidth size="md">Button</Button>
-      <Button fullWidth size="lg">Button</Button>
+      <Button fullWidth size="xs" className="my--sm">Button</Button>
+      <Button fullWidth size="sm" className="my--sm">Button</Button>
+      <Button fullWidth size="md" className="my--sm">Button</Button>
+      <Button fullWidth size="lg" className="my--sm">Button</Button>
       <Button>Button</Button>
     </div>
 

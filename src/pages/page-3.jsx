@@ -10,6 +10,9 @@ import CollectionItem from '../components/Collection/CollectionItem';
 
 const ThirdPage = () => (
   <div>
+    <Link to="/">Go back to the homepage</Link>
+    <Link to="/page-4/">Go to page 4</Link>
+
     <Card tag="section" className="m--xl" style={{ outline: '1px solid red' }} isHoverable>
       <p className="weave-p">Content</p>
     </Card>

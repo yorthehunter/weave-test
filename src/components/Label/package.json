@@ -1,11 +1,11 @@
 {
-  "name": "weave-react-badge",
+  "name": "weave-react-label",
   "dependencies": {
     "weave-react-utilities": "file:../utilities",
-    "weave-ui-badge": "file:../../weave/components/badge"
+    "weave-ui-badge": "file:../../weave/components/label"
   },
   "version": "1.0.0",
-  "description": "Weave badge React component",
+  "description": "Weave label React component",
   "main": "index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

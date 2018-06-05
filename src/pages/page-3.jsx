@@ -10,7 +10,7 @@ import CollectionItem from '../components/Collection/CollectionItem';
 
 const ThirdPage = () => (
   <div>
-    <Card isHoverable>
+    <Card tag="section" className="m--xl" style={{ outline: '1px solid red' }} isHoverable>
       <p className="weave-p">Content</p>
     </Card>
     <Collection>
@@ -19,7 +19,7 @@ const ThirdPage = () => (
     </Collection>
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridGap: '1rem', alignItems: 'self-start' }}>
       <Collection isHoverable size="sm">
-        <CollectionItem>Item</CollectionItem>
+        <CollectionItem outset="xl">Item</CollectionItem>
         <CollectionItem>Item</CollectionItem>
       </Collection>
       <Collection isHoverable size="md">

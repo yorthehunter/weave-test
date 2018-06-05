@@ -3,21 +3,26 @@ import classNames from 'classnames';
 import { oneOfType, array, string, object, node, func } from 'prop-types';
 
 const CustomTag = (props) => {
-  const Tag = props.tag;
-
   const {
+    componentStyles,
     componentClasses,
-    customClasses,
+    className,
+    style,
+    tag,
+    children,
   } = props;
+
+  const Tag = tag;
 
   const classes = classNames(
     componentClasses,
-    customClasses,
+    className,
+    style,
   );
 
   return (
     <Tag
-      style={Object.assign({}, props.componentStyles, props.customStyles)}
+      style={Object.assign({}, componentStyles, style)}
       className={classes}
       href={props.href}
       value={props.value}
@@ -25,19 +30,19 @@ const CustomTag = (props) => {
       ref={props.componentRef}
       onClick={props.onClick}
     >
-      { props.children }
+      { children }
     </Tag>
   );
 };
 
 const propTypes = {
   tag: string.isRequired,
-  customStyles: object,
-  componentStyles: object,
-  customClasses: oneOfType([
+  className: oneOfType([
     string,
     array,
   ]),
+  style: object,
+  componentStyles: object,
   componentClasses: oneOfType([
     string,
     array,
@@ -51,9 +56,9 @@ const propTypes = {
 };
 
 const defaultProps = {
-  customStyles: {},
+  className: null,
   componentStyles: {},
-  customClasses: null,
+  style: {},
   componentClasses: null,
   children: null,
   href: null,

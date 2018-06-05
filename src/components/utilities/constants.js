@@ -12,6 +12,8 @@ export const size = [
   'md',
   'lg',
   'xl',
+  'xxl',
+  'none',
 ];
 
 export const position = [

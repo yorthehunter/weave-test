@@ -28,8 +28,13 @@
   @each $size in ['xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'none'] {
     %p--#{$size},
     .p--#{$size} {
-      --padding: var(--spacing-#{$size}) !important;
-      padding: var(--padding);
+      --px: var(--spacing-#{$size}) !important;
+      --py: var(--spacing-#{$size}) !important;
+      --pt: var(--spacing-#{$size}) !important;
+      --pb: var(--spacing-#{$size}) !important;
+      --pl: var(--spacing-#{$size}) !important;
+      --pr: var(--spacing-#{$size}) !important;
+      @include padding;
     }
 
     %px--#{$size},
@@ -68,6 +73,17 @@
     .pr--#{$size} {
       --pr: var(--spacing-#{$size}) !important;
       padding-right: var(--pr);
+    }
+
+    %m--#{$size},
+    .m--#{$size} {
+      --my: var(--spacing-#{$size}) !important;
+      --mx: var(--spacing-#{$size}) !important;
+      --mt: var(--spacing-#{$size}) !important;
+      --mb: var(--spacing-#{$size}) !important;
+      --ml: var(--spacing-#{$size}) !important;
+      --mr: var(--spacing-#{$size}) !important;
+      @include margin;
     }
 
     %mx--#{$size},

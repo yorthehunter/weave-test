@@ -44,6 +44,7 @@ $weave-utilities--option: true !default;
   --display-as: block;
   --font-size: var(--type-size-f3);
   --line-height: var(--component-line-height-f3);
+  --position: relative;
 }
 
 @mixin padding {
@@ -118,4 +119,8 @@ $weave-utilities--option: true !default;
 
 @mixin unstyled-list {
   list-style: none;
+}
+
+@mixin position {
+  position: var(--position);
 }

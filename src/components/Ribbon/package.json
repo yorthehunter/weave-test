@@ -1,0 +1,35 @@
+{
+  "name": "weave-react-ribbon",
+  "dependencies": {
+    "weave-react-utilities": "file:../utilities",
+    "weave-ui-ribbon": "file:../../weave/components/ribbon"
+  },
+  "version": "1.0.0",
+  "description": "Weave ribbon React component",
+  "main": "index.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stitchfix/weave.git"
+  },
+  "keywords": [
+    "css",
+    "scss",
+    "weave",
+    "design",
+    "system",
+    "style",
+    "guide",
+    "component",
+    "library",
+    "ui"
+  ],
+  "author": "Stitch Fix",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/stitchfix/weave/issues"
+  },
+  "homepage": "https://github.com/stitchfix/weave#readme"
+}

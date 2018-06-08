@@ -33,7 +33,10 @@ export const positions = [
   'above',
   'below',
   'inline',
-  'upper-right',
+  'top-right',
+  'top-left',
+  'bottom-right',
+  'bottom-left',
 ];
 
 export const alerts = [

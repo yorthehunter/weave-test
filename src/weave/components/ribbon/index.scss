@@ -1,0 +1,135 @@
+@import '../../core/index';
+
+@mixin weave-ribbon {
+  // Default to medium size if no modifier added
+  @include weave-ribbon-md;
+  @include bg;
+  @include display-as;
+  @include color;
+  @include py;
+  @include px;
+  @include typeset;
+  @include position;
+}
+
+@mixin weave-ribbon-sm {
+  --py: var(--spacing-xs);
+  --px: var(--spacing-xs);
+  --font-size: var(--type-size-f0);
+  --line-height: var(--component-line-height-f0);
+}
+
+@mixin weave-ribbon-md {
+  --py: var(--spacing-sm);
+  --px: var(--spacing-sm);
+  --font-size: var(--type-size-f1);
+  --line-height: var(--component-line-height-f1);
+}
+
+@mixin weave-ribbon-lg {
+  --py: var(--spacing-md);
+  --px: var(--spacing-md);
+  --font-size: var(--type-size-f2);
+  --line-height: var(--component-line-height-f2);
+}
+
+$fold-size: var(--spacing-xs);
+$ribbon-overlap: calc(var(--spacing-xs) * -1);
+
+// This makes it look like there's a fold in the ribbon.
+@mixin weave-fold {
+  --bg-color: #{$color-black-75};
+  --position: absolute;
+  @include bg;
+  @include position;
+  clip-path: polygon(0% 100%, 100% 0, 100% 100%);
+  height: $fold-size;
+  width: $fold-size;
+}
+
+.weave-ribbon {
+  --bg-color: #{$color-grape};
+  --display-as: inline-flex;
+  --font-color: var(--text-on-dark-bg);
+
+  @include weave-ribbon;
+
+  &::after {
+    @include weave-fold;
+  }
+}
+
+.weave-ribbon--overlay {
+  --elevation: var(--elevated-1);
+  @include elevated;
+  position: absolute;
+}
+
+.weave-ribbon--top-left {
+  border-top-left-radius: var(--border-radius-default);
+  left: $ribbon-overlap;
+  top: $ribbon-overlap;
+
+  &::after {
+    bottom: $ribbon-overlap;
+    content: '';
+    left: 0;
+    transform: rotate(270deg);
+  }
+}
+
+.weave-ribbon--top-right {
+  border-top-right-radius: var(--border-radius-default);
+  right: $ribbon-overlap;
+  top: $ribbon-overlap;
+
+  &::after {
+    bottom: $ribbon-overlap;
+    content: '';
+    right: 0;
+    transform: rotate(180deg);
+  }
+}
+
+.weave-ribbon--bottom-left {
+  border-bottom-left-radius: var(--border-radius-default);
+  bottom: $ribbon-overlap;
+  left: $ribbon-overlap;
+
+  &::after {
+    content: '';
+    left: 0;
+    top: $ribbon-overlap;
+  }
+}
+
+.weave-ribbon--bottom-right {
+  border-bottom-right-radius: var(--border-radius-default);
+  bottom: $ribbon-overlap;
+  right: $ribbon-overlap;
+
+  &::after {
+    content: '';
+    right: 0;
+    top: $ribbon-overlap;
+    transform: rotate(90deg);
+  }
+}
+
+.weave-ribbon--sm { @include weave-ribbon-sm; }
+.weave-ribbon--md { @include weave-ribbon-md; }
+.weave-ribbon--lg { @include weave-ribbon-lg; }
+
+.weave-ribbon--responsive {
+  @include viewport-equal-to-and-smaller-than('full') {
+    @include weave-ribbon-lg;
+  };
+
+  @include viewport-equal-to-and-smaller-than('lg') {
+    @include weave-ribbon-md;
+  };
+
+  @include viewport-equal-to-and-smaller-than('sm') {
+    @include weave-ribbon-sm;
+  };
+}

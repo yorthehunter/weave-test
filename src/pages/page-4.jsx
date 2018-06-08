@@ -1,8 +1,9 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import Label from '../components/Label/';
+import Ribbon from '../components/Ribbon/';
 
-// import '../weave/components/box/index.scss';
+import '../weave/components/ribbon/index.scss';
 
 const FourthPage = () => (
   <div>
@@ -23,6 +24,27 @@ const FourthPage = () => (
     <div className="my--sm"><Label type="info">Hello</Label></div>
     <div className="my--sm"><Label responsive>Hello</Label></div>
 
+    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gridGap: '1rem' }}>
+      <div style={{ height: '200px', position: 'relative', outline: '1px solid red' }}>
+        Hi
+        <Ribbon position="top-left">Hello</Ribbon>
+        <Ribbon position="top-right">Hello</Ribbon>
+        <Ribbon position="bottom-left">Hello</Ribbon>
+        <Ribbon position="bottom-right">Hello</Ribbon>
+      </div>
+      <div style={{ height: '200px', position: 'relative', outline: '1px solid red' }}>
+        Hi
+        <Ribbon position="top-left" size="sm">Hello</Ribbon>
+      </div>
+      <div style={{ height: '200px', position: 'relative', outline: '1px solid red' }}>
+        Hi
+        <Ribbon position="top-left" size="md">Hello</Ribbon>
+      </div>
+      <div style={{ height: '200px', position: 'relative', outline: '1px solid red' }}>
+        Hi
+        <Ribbon position="top-left" size="lg">Hello</Ribbon>
+      </div>
+    </div>
   </div>
 );
 

@@ -1,0 +1,35 @@
+{
+  "name": "weave-react-collection",
+  "dependencies": {
+    "weave-react-utilities": "file:../utilities",
+    "weave-ui-collection": "file:../../weave/components/collection"
+  },
+  "version": "1.0.0",
+  "description": "Weave collection React component",
+  "main": "index.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stitchfix/weave.git"
+  },
+  "keywords": [
+    "css",
+    "scss",
+    "weave",
+    "design",
+    "system",
+    "style",
+    "guide",
+    "component",
+    "library",
+    "ui"
+  ],
+  "author": "Stitch Fix",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/stitchfix/weave/issues"
+  },
+  "homepage": "https://github.com/stitchfix/weave#readme"
+}

@@ -1,0 +1,150 @@
+@import '../../core/index';
+
+$popover-triangle-width: 1rem;
+$popover-triangle-height: .5rem;
+
+@mixin triangle {
+  --bg-color: var(--popover-bg);
+
+  @include bg;
+  height: $popover-triangle-height;
+  width: $popover-triangle-width;
+
+  content: '';
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, 0);
+}
+
+@mixin triangle--down {
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+  bottom: -$popover-triangle-height;
+}
+
+@mixin triangle--up {
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+  top: -$popover-triangle-height;
+}
+
+
+
+@mixin weave-popover {
+  @include py;
+  @include px;
+  @include bg;
+  @include color;
+  @include typeset;
+  @include elevated;
+  @include rounded;
+  @include position;
+  @include transition-once(transform, .1s, var(--transition-easing-complex));
+  min-width: 15rem;
+  max-width: 25rem;
+  text-align: left;
+  visibility: hidden;
+  width: fit-content;
+
+  &::before {
+    @include triangle;
+    @include triangle--down;
+  }
+}
+
+.weave-popover {
+  --elevation: var(--elevated-3);
+  --popover-bg: #{$color-white};
+  --bg-color: var(--popover-bg);
+  --px: var(--spacing-lg);
+  --py: var(--spacing-lg);
+  --font-size: var(--type-size-f3);
+  --line-height: var(--body-line-height-f3);
+  --border-radius: var(--border-radius-default);
+  --z-index: var(--z-index-3);
+  @include weave-popover;
+}
+
+
+
+
+
+%weave-triangle--down {
+}
+
+%weave-triangle--up {
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+}
+
+%weave-popover,
+.weave-popover {
+  @include viewport-equal-to-and-smaller-than(xs) {
+    max-width: 100vw;
+  }
+
+  &.is-visible {
+    visibility: visible;
+  }
+}
+
+.weave-popover--down {
+  &::before {
+    @include triangle--up;
+  }
+}
+
+.weave-popover--centered {
+  left: 50%;
+  transform: translate(-50%, calc(-100% + -.25rem));
+
+  &.weave-popover--down {
+    transform: translate(-50%, calc(100% + .25rem));
+  }
+}
+
+.weave-popover--pull-left {
+  left: 0;
+  transform: translate(0%, calc(-100% + -.25rem));
+
+  &.weave-popover--down {
+    transform: translate(0%, calc(100% + .25rem));
+  }
+
+  &::before {
+    left: $popover-triangle-width;
+  }
+}
+
+.weave-popover--pull-right {
+  right: 0;
+  transform: translate(0%, calc(-100% + -.25rem));
+
+  &.weave-popover--down {
+    transform: translate(0%, calc(100% + .25rem));
+  }
+
+  &::before {
+    left: unset;
+    right: 0;
+  }
+}
+
+// Container class, easily used on a `label` element that enables css-only
+// popovers on click
+.weave-has-popover {
+  @include position;
+
+  & > .weave-popover {
+    --position: absolute;
+    @include position;
+    top: -$popover-triangle-height;
+
+    &.weave-popover--down {
+      bottom: -$popover-triangle-height;
+      top: auto;
+    }
+  }
+}
+
+.weave-popover-click-indication {
+  @include clickable;
+  border-bottom: 1px dotted;
+}

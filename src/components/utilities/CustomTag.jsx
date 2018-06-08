@@ -17,7 +17,6 @@ const CustomTag = (props) => {
   const classes = classNames(
     componentClasses,
     className,
-    style,
   );
 
   return (

@@ -2,14 +2,21 @@ import React from 'react';
 import Link from 'gatsby-link';
 import Label from '../components/Label/';
 import Ribbon from '../components/Ribbon/';
+import ProgressBar from '../components/ProgressBar/';
 import Popover from '../components/Popover/';
 import PopoverActivator from '../components/Popover/PopoverActivator';
 import PopoverDisplay from '../components/Popover/PopoverDisplay';
 
 import '../weave/components/popover/index.scss';
+import '../weave/components/progress-bar/index.scss';
 
 const FourthPage = () => (
   <div>
+    <div className="weave-progress weave-progress--determinate my--xl" />
+
+    <ProgressBar progress={70} />
+    <ProgressBar />
+
     <Link to="/">Go back to the homepage</Link>
     <Link to="/page-5/">Go to page 5</Link>
 

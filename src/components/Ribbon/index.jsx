@@ -62,7 +62,7 @@ const propTypes = {
     null,
   ]),
   responsive: bool,
-  /** Ribbon content (if props.children aren't specified) */
+  /** Ribbon content (if props.children isn't specified) */
   content: (props) => {
     if (props.content && props.children) {
       console.warn('Cannot have both "content" AND "children" props.');

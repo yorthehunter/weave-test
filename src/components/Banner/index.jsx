@@ -85,7 +85,7 @@ class Banner extends React.Component {
               className={`${componentPrefix}__close`}
               onClick={this.removeBanner}
             >
-              <Icon name="close" color={iconColor()} />
+              <Icon name="close" color="var(--font-color)" />
             </button>
           }
         </CustomTag>
@@ -123,7 +123,7 @@ const propTypes = {
     'lg',
     null,
   ]),
-  /** Banner content (if props.children aren't specified) */
+  /** Banner content (if props.children isn't specified) */
   content: string,
   visible: bool,
   responsive: bool,

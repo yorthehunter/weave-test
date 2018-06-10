@@ -3,15 +3,20 @@ import Link from 'gatsby-link';
 import Label from '../components/Label/';
 import Ribbon from '../components/Ribbon/';
 import ProgressBar from '../components/ProgressBar/';
+import Tag from '../components/Tag/';
 import Popover from '../components/Popover/';
 import PopoverActivator from '../components/Popover/PopoverActivator';
 import PopoverDisplay from '../components/Popover/PopoverDisplay';
 
 import '../weave/components/popover/index.scss';
 import '../weave/components/progress-bar/index.scss';
+import '../weave/components/tag/index.scss';
 
 const FourthPage = () => (
   <div>
+    <Tag>Hello.</Tag>
+    <Tag dismissable={false}>Hello.</Tag>
+
     <div className="weave-progress weave-progress--determinate my--xl" />
 
     <ProgressBar progress={70} />

@@ -46,7 +46,7 @@ const propTypes = {
     'upper-right',
     null,
   ]),
-  /** Badge content (if props.children aren't specified) */
+  /** Badge content (if props.children isn't specified) */
   content: (props) => {
     if (props.content && props.children) {
       console.warn('Cannot have both "content" AND "children" props.');

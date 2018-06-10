@@ -1,0 +1,49 @@
+@import '../../core/index';
+
+@mixin weave-tag {
+  @include display-as;
+  @include rounded;
+  @include bg;
+  @include typeset;
+  align-items: center;
+  overflow: hidden;
+  max-height: var(--spacing-lg);
+}
+
+.weave-tag {
+  --display-as: inline-flex;
+  --border-radius: var(--border-radius-pill);
+  --bg-color: #{$color-gray-light};
+  --font-size: var(--type-size-f1);
+  --line-height: var(--component-line-height-f1);
+  @include weave-tag;
+}
+
+.weave-tag__image {
+  --border-radius: var(--border-radius-circle);
+  @include rounded;
+}
+
+.weave-tag__message {
+  --px: var(--spacing-sm);
+  @include px;
+}
+
+.weave-tag__close {
+  --px: var(--spacing-sm);
+  --py: var(--spacing-sm);
+  --ml: calc(var(--px) * -1);
+  --border-width: 0;
+
+  @include bg;
+  @include border;
+  @include py;
+  @include px;
+  @include margin;
+  @include transition(background-color);
+  @include clickable;
+
+  &:hover {
+    background-color: $color-black-10;
+  }
+}

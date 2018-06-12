@@ -38,7 +38,7 @@ $ribbon-overlap: calc(var(--spacing-xs) * -1);
 
 // This makes it look like there's a fold in the ribbon.
 @mixin weave-fold {
-  --bg-color: #{$color-black-75};
+  --bg-color: var(--bg-transparent-dark);
   --position: absolute;
   @include bg;
   @include position;

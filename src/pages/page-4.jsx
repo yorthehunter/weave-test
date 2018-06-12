@@ -4,6 +4,7 @@ import Label from '../components/Label/';
 import Ribbon from '../components/Ribbon/';
 import ProgressBar from '../components/ProgressBar/';
 import Tag from '../components/Tag/';
+import Tooltip from '../components/Tooltip/';
 import Popover from '../components/Popover/';
 import PopoverActivator from '../components/Popover/PopoverActivator';
 import PopoverDisplay from '../components/Popover/PopoverDisplay';
@@ -11,11 +12,12 @@ import PopoverDisplay from '../components/Popover/PopoverDisplay';
 import '../weave/components/popover/index.scss';
 import '../weave/components/progress-bar/index.scss';
 import '../weave/components/tag/index.scss';
+import '../weave/components/tooltip/index.scss';
 
 const FourthPage = () => (
   <div>
-    <Tag>Hello.</Tag>
-    <Tag dismissable={false}>Hello.</Tag>
+    <Tooltip content="this is a <Tag>!"><Tag>Hello.</Tag></Tooltip>
+    <Tooltip content="this tooltip is below!" position="below"><Tag dismissable={false}>Hello.</Tag></Tooltip>
 
     <div className="weave-progress weave-progress--determinate my--xl" />
 

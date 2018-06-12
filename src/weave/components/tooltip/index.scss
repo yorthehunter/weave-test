@@ -1,0 +1,80 @@
+@import '../../core/index';
+
+@mixin weave-tooltip {
+  --py: var(--spacing-sm);
+  --px: var(--spacing-sm);
+  --bg-color: var(--bg-transparent-dark);
+  --font-size: var(--type-size-f1);
+  --line-height: var(--component-line-height-f1);
+  --font-color: #{$color-white};
+  --z-index: var(--z-index-5);
+  --border-radius: var(--border-radius-default);
+  --display-as: table; // Layout fix
+
+  @include py;
+  @include px;
+  @include typeset;
+  @include bg;
+  @include color;
+  @include elevated;
+  @include rounded;
+  @include transition-once(transform, .1s, var(--transition-easing-complex));
+  @include display-as;
+
+  visibility: hidden;
+  text-shadow: 0 1px 0 #{$color-black};
+  white-space: nowrap;
+  pointer-events: none; // Unclickable
+
+  &.is-visible {
+    visibility: visible;
+  }
+}
+
+.weave-tooltip {
+  @include weave-tooltip;
+}
+
+
+// `.weave-has-tooltip` generates a tooltip using pseudo elements & a data-tooltip
+.weave-has-tooltip {
+  --display-as: inline-flex;
+
+  @include position;
+  @include display-as;
+
+  &:after {
+    --position: absolute;
+
+    @include position;
+    @include weave-tooltip;
+
+    bottom: 100%;
+    left: 50%;
+    content: attr(data-tooltip); // Pulls content from `data-tooltip` attribute of element
+    transform: translateX(-50%) translateY(0);
+  }
+
+  &:hover:after,
+  &:focus:after {
+    visibility: visible;
+    transform: translateX(-50%) translateY(-0.25rem); // Adds movement
+  }
+}
+
+// Adjusts positioning of tooltip to place it below content
+.weave-has-tooltip--below {
+  &:after {
+    top: 100%;
+  }
+
+  &:hover:after,
+  &:focus:after {
+    transform: translateX(-50%) translateY(0.25rem);
+  }
+}
+
+// Use hover-indication when you want users to know that text is hoverable
+.weave-has-tooltip-indication {
+  border-bottom: 1px dotted;
+}

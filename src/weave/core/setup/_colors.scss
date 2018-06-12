@@ -57,4 +57,9 @@ $color-white-25: rgba(255, 255, 255, .25);
   --border-info-color: #{$color-mint-lightest};
   --border-warning-color: #{$color-tangerine};
   --border-neutral-color: #{$color-gray-light};
+
+  --bg-transparent-dark: #{$color-black-75};
+  --bg-transparent-medium: #{$color-black-50};
+  --bg-transparent-light: #{$color-black-25};
+  --bg-transparent-lightest: #{$color-black-10};
 }

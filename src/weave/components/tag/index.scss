@@ -25,7 +25,9 @@
 }
 
 .weave-tag__message {
+  --py: var(--spacing-xs);
   --px: var(--spacing-sm);
+  @include py;
   @include px;
 }
 

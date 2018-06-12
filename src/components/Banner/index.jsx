@@ -41,19 +41,6 @@ class Banner extends React.Component {
       html,
     } = this.props;
 
-    const iconColor = () => {
-      switch (type) {
-        case 'error':
-        case 'success':
-          return '#FFFFFF';
-        case 'info':
-        case 'warning':
-          return '#000000';
-        default:
-          return '#000000';
-      }
-    };
-
     const componentClasses = [
       componentPrefix,
       sizeModifier(size, componentPrefix),

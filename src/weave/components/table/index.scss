@@ -1,0 +1,100 @@
+@import '../../core/index';
+
+// $table-row-border: 1px solid color(gray-light);
+// $table-row-bg--hover: color(black-10);
+// $table-row-bg--stripe: color(gray-lightest);
+// $table-row-bg--stripe-alternate: color(white);
+//
+// $table-padding--default: space(md) space(sm);
+// $table-padding--condensed: space(sm) space(sm);
+// $table-padding--none: 0;
+
+@mixin weave-table {
+  --font-size: var(--type-size-f2);
+  --line-height: var(--component-line-height-f2);
+
+  @include typeset;
+
+  // Reset the default separation of table cells
+  border-collapse: collapse;
+
+  tr {
+    --border-width: 0px;
+    --bg-color: #{$color-white-85};
+    @include border;
+    @include bg;
+
+    &:nth-child(odd) {
+      --bg-color: #{$color-white-85};
+    }
+
+    &:nth-child(even) {
+      --bg-color: #{$color-white-85};
+    }
+  }
+
+  th,
+  td {
+    --py: var(--spacing-md);
+    --px: var(--spacing-md);
+    @include py;
+    @include px;
+  }
+}
+
+.weave-table {
+  @include weave-table;
+}
+
+.weave-table--bordered {
+  tr {
+    --border-width: 0 0 1px 0;
+    --border-color: #{$color-gray-light};
+  }
+}
+
+.weave-table--striped {
+  tr:nth-child(odd) {
+    --bg-color: #{$color-white};
+  }
+
+  tr:nth-child(even) {
+    --bg-color: #{$color-gray-lightest};
+  }
+}
+
+.weave-table--hoverable {
+  tr:hover {
+    --bg-color: var(--bg-transparent-lightest);
+  }
+}
+
+.weave-table--basic {
+  tr {
+    --bg-color: #{$color-white-85};
+
+    &:nth-child(odd) {
+      --bg-color: #{$color-white-85};
+    }
+
+    &:nth-child(even) {
+      --bg-color: #{$color-white-85};
+    }
+  }
+}
+
+.weave-table--condensed {
+  th,
+  td {
+    --py: var(--spacing-sm);
+    --px: var(--spacing-xs);
+  }
+}
+
+.weave-table--nopad {
+  th,
+  td {
+    --py: var(--spacing-none);
+    --px: var(--spacing-none);
+  }
+}

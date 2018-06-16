@@ -9,13 +9,15 @@
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-react-helmet": "^2.0.10",
     "gatsby-plugin-sass": "^1.0.26",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
     "react-helmet": "^5.2.0",
     "weave-react-badge": "file:./src/components/Badge",
     "weave-react-banner": "file:src/components/Badge",
-    "weave-ui-core": "file:./src/weave/core",
     "weave-ui-badge": "file:./src/weave/components/badge",
     "weave-ui-banner": "file:./src/weave/components/banner",
-    "weave-ui-button": "file:./src/weave/components/button"
+    "weave-ui-button": "file:./src/weave/components/button",
+    "weave-ui-core": "file:./src/weave/core"
   },
   "keywords": [
     "gatsby"

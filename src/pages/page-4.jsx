@@ -17,51 +17,9 @@ import '../weave/components/table/index.scss';
 
 const FourthPage = () => (
   <div>
-    <table className="weave-table weave-table--striped">
-      <thead>
-        <tr>
-          <th>h1</th>
-          <th>h2</th>
-          <th>h3</th>
-          <th>h4</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>2</td>
-          <td>3</td>
-          <td>4</td>
-        </tr>
-        <tr>
-          <td>
-            <table className="weave-table weave-table--hoverable weave-table--basic">
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>2</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>2</td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>2</td>
-          <td>3</td>
-          <td>4</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>2</td>
-          <td>3</td>
-          <td>4</td>
-        </tr>
-      </tbody>
-    </table>
-
-
+    <Link to="/">Go back to the homepage</Link>
+    <Link to="/page-5/">Go to page 5</Link>
+    
     <Tooltip content="this is a <Tag>!"><Tag>Hello.</Tag></Tooltip>
     <Tooltip content="this tooltip is below!" position="below"><Tag dismissable={false}>Hello.</Tag></Tooltip>
 
@@ -69,9 +27,6 @@ const FourthPage = () => (
 
     <ProgressBar progress={70} />
     <ProgressBar />
-
-    <Link to="/">Go back to the homepage</Link>
-    <Link to="/page-5/">Go to page 5</Link>
 
     <Label size="sm">Hello</Label>
     <Label size="md">Hello</Label>

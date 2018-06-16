@@ -12,14 +12,15 @@
 @mixin weave-table {
   --font-size: var(--type-size-f2);
   --line-height: var(--component-line-height-f2);
-
+  --text-align: left;
   @include typeset;
+  @include text-align;
 
   // Reset the default separation of table cells
   border-collapse: collapse;
 
   tr {
-    --border-width: 0px;
+    --border-width: 0;
     --bg-color: #{$color-white-85};
     @include border;
     @include bg;
@@ -47,53 +48,63 @@
 }
 
 .weave-table--bordered {
-  tr {
-    --border-width: 0 0 1px 0;
+  > thead > tr,
+  > tbody > tr,
+  > tfoot > tr,
+  > tr {
     --border-color: #{$color-gray-light};
+    --border-width: 0 0 1px 0;
   }
 }
 
 .weave-table--striped {
-  tr:nth-child(odd) {
+  > thead > tr:nth-child(odd),
+  > tbody > tr:nth-child(odd),
+  > tfoot > tr:nth-child(odd),
+  > tr:nth-child(odd) {
     --bg-color: #{$color-white};
   }
 
-  tr:nth-child(even) {
+  > thead > tr:nth-child(even),
+  > tbody > tr:nth-child(even),
+  > tfoot > tr:nth-child(even),
+  > tr:nth-child(even) {
     --bg-color: #{$color-gray-lightest};
   }
 }
 
 .weave-table--hoverable {
-  tr:hover {
+  > thead > tr:hover,
+  > tbody > tr:hover,
+  > tfoot > tr:hover,
+  > tr:hover {
     --bg-color: var(--bg-transparent-lightest);
   }
 }
 
-.weave-table--basic {
-  tr {
-    --bg-color: #{$color-white-85};
-
-    &:nth-child(odd) {
-      --bg-color: #{$color-white-85};
-    }
-
-    &:nth-child(even) {
-      --bg-color: #{$color-white-85};
-    }
-  }
-}
-
 .weave-table--condensed {
-  th,
-  td {
+  > thead > tr > th,
+  > tbody > tr > th,
+  > tfoot > tr > th,
+  > tr > th,
+  > thead > tr > td,
+  > tbody > tr > td,
+  > tfoot > tr > td,
+  > tr > td {
     --py: var(--spacing-sm);
     --px: var(--spacing-xs);
   }
 }
 
 .weave-table--nopad {
-  th,
-  td {
+  > thead > tr > th,
+  > tbody > tr > th,
+  > tfoot > tr > th,
+  > tr > th,
+  > thead > tr > td,
+  > tbody > tr > td,
+  > tfoot > tr > td,
+  > tr > td {
     --py: var(--spacing-none);
     --px: var(--spacing-none);
   }

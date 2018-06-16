@@ -1,13 +1,21 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import Table from '../components/Table/';
+import Spinner from '../components/Spinner/';
 
 import '../weave/components/table/index.scss';
+import '../weave/components/spinner/index.scss';
 
 const FourthPage = () => (
   <div>
     <Link to="/">Go back to the homepage</Link>
     <Link to="/page-6/">Go to page 6</Link>
+
+    <Spinner size="xs" />
+    <Spinner />
+    <Spinner size="md" />
+    <Spinner size="lg" />
+    <Spinner size="xl" />
 
     <Table
       className="full-width"

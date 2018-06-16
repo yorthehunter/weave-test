@@ -1,0 +1,48 @@
+@import '../../core/index';
+
+// Offset forces that very Material Design look
+$spinner-offset:   187;
+// Duration is the timing of the full rotation
+$spinner-duration: 1.8s;
+
+@import "./animations.scss";
+
+@mixin weave-spinner {
+  --bg-color: var(--border-accent-color);
+  width: var(--size);
+  height: var(--size);
+  // The weave-spinner-rotate animation turns the entire spinner slowly
+  animation: weave-spinner-rotate $spinner-duration linear infinite;
+
+  &__circular-path {
+    stroke-dasharray: $spinner-offset;
+    stroke-dashoffset: 0;
+    stroke: var(--bg-color);
+    transform-origin: center;
+    // The weave-spinner-dash animation creates a stroked semi-circle visual
+    // that also turns in a circle with a different pacing
+    animation: weave-spinner-dash $spinner-duration ease-in-out infinite;
+  }
+}
+
+@mixin weave-spinner-lg { --size: 8rem; }
+@mixin weave-spinner-md { --size: 4rem; }
+@mixin weave-spinner-sm { --size: 2rem; }
+@mixin weave-spinner-xs { --size: 1rem; }
+
+.weave-spinner {
+  @include weave-spinner;
+  @include weave-spinner-md;
+}
+
+.weave-spinner--lg { @include weave-spinner-lg; }
+.weave-spinner--md { @include weave-spinner-md; }
+.weave-spinner--sm { @include weave-spinner-sm; }
+.weave-spinner--xs { @include weave-spinner-xs; }
+
+.weave-spinner--responsive {
+  @include viewport-equal-to-and-smaller-than('full') { @include weave-spinner-lg; };
+  @include viewport-equal-to-and-smaller-than('lg')   { @include weave-spinner-md; };
+  @include viewport-equal-to-and-smaller-than('sm')   { @include weave-spinner-sm; };
+  @include viewport-equal-to-and-smaller-than('xs')   { @include weave-spinner-xs; };
+}

@@ -1,0 +1,66 @@
+@import '../../core/index';
+
+$dropdown--bg: color(white);
+
+@mixin weave-dropdown-menu {
+  --border-radius: var(--border-radius-default);
+  --elevation: var(--elevated-1);
+  --font-size: var(--type-size-f3);
+  --line-height: var(--body-line-height-f3);
+  --my: var(--spacing-sm);
+  --px: var(--spacing-none);
+  --position: absolute;
+  --bg-color: #{$color-white};
+
+  @include unstyled-list;
+  @include rounded;
+  @include elevated;
+  @include typeset;
+  @include my;
+  @include px;
+  @include position;
+  @include display-as;
+  @include bg;
+  min-width: 12rem;
+  white-space: nowrap;
+
+  &.is-hidden {
+    --display-as: hidden;
+  }
+
+  &__item {
+    --py: var(--spacing-sm);
+    --px: var(--spacing-md);
+    --display-as: block;
+    @include py;
+    @include px;
+    @include display-as;
+
+    > a {
+      --display-as: block;
+      --my: calc(var(--spacing-sm) * -1);
+      --mx: calc(var(--spacing-md) * -1);
+      --py: var(--spacing-sm);
+      --px: var(--spacing-md);
+      @include display-as;
+      @include my;
+      @include mx;
+      @include py;
+      @include px;
+      text-decoration: none;
+    }
+
+    &:hover {
+      --bg-color: #{$color-gray-lightest};
+      @include bg;
+    }
+  }
+}
+
+.weave-dropdown-menu {
+  @include weave-dropdown-menu;
+}
+
+.weave-has-dropdown {
+  @include position;
+}

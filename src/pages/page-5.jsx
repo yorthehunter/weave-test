@@ -2,14 +2,26 @@ import React from 'react';
 import Link from 'gatsby-link';
 import Table from '../components/Table/';
 import Spinner from '../components/Spinner/';
+import Dropdown from '../components/Dropdown/';
+import DropdownActivator from '../components/Dropdown/DropdownActivator';
+import DropdownMenu from '../components/Dropdown/DropdownMenu';
 
 import '../weave/components/table/index.scss';
 import '../weave/components/spinner/index.scss';
+import '../weave/components/dropdown/index.scss';
 
 const FourthPage = () => (
   <div>
     <Link to="/">Go back to the homepage</Link>
     <Link to="/page-6/">Go to page 6</Link>
+
+    <Dropdown tag="div">
+      <DropdownActivator>This activates a dropdown below</DropdownActivator>
+      <DropdownMenu menuItems>
+        <a href="#">Yo</a>
+        <a href="#">Yo</a>
+      </DropdownMenu>
+    </Dropdown>
 
     <Spinner size="xs" />
     <Spinner />

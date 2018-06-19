@@ -125,13 +125,6 @@
     }
   }
 
-  // Strips a list of its styles
-  %list-unstyled,
-  .list-unstyled {
-    @extend %pl--none;
-    list-style: none;
-  }
-
   // Use this to hide an element but allow it to still be readable in the DOM
   // e.g. for screenreaders
   %hidden-from-sight,

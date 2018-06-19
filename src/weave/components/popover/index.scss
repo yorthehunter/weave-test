@@ -26,8 +26,6 @@ $popover-triangle-height: .5rem;
   top: -$popover-triangle-height;
 }
 
-
-
 @mixin weave-popover {
   @include py;
   @include px;

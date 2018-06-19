@@ -13,7 +13,7 @@
 .weave-tag {
   --display-as: inline-flex;
   --border-radius: var(--border-radius-pill);
-  --bg-color: #{$color-gray-light};
+  --bg-color: var(--color-neutral-2);
   --font-size: var(--type-size-f1);
   --line-height: var(--component-line-height-f1);
   @include weave-tag;

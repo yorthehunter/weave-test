@@ -1,0 +1,37 @@
+@import '../../core/index';
+
+@mixin separator {
+  --border-color: var(--color-neutral-2);
+
+  @include border;
+  // When inside a flex box, stretch to fit dimension
+  align-self: stretch;
+}
+
+@mixin separator-vertical {
+  --ml: var(--spacing-sm);
+  --mr: var(--spacing-sm);
+  --border-width: 0px 1px 0px 0px;
+  width: 0px;
+  @include margin;
+}
+
+@mixin separator-horizontal {
+  --mt: var(--spacing-sm);
+  --mb: calc(var(--spacing-sm) - 1px);
+  --border-width: 1px 0px 0px 0px;
+  height: 0px;
+  @include margin;
+}
+
+.weave-separator {
+  @include separator;
+}
+
+.weave-separator--vertical {
+  @include separator-vertical;
+}
+
+.weave-separator--horizontal {
+  @include separator-horizontal;
+}

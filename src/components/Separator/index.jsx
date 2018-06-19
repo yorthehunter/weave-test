@@ -1,7 +1,6 @@
 import React from 'react';
 import { bool } from 'prop-types';
 
-
 /**
  *  Separate content, either vertically or horizontally. Finally! What the hell
  * did we ever do before this thing existed?!?
@@ -9,9 +8,9 @@ import { bool } from 'prop-types';
 
 const Separator = (props) => (
   props.horizontal ?
-    <hr className="u-horizontal-separator" />
+    <hr className="weave-separator weave-separator--horizontal" />
     :
-    <span className="u-separator-pipe" />
+    <span className="weave-separator weave-separator--vertical" />
 );
 
 const defaultProps = {

@@ -1,4 +1,5 @@
 @import '../../core/index';
+@import './animations';
 
 @mixin weave-progress {
   @include bg;
@@ -65,25 +66,4 @@
     animation: weave-indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
     animation-delay: 1.15s;
   }
-}
-
-@-webkit-keyframes weave-indeterminate {
-  0% { left: -35%; right: 100%; }
-  60% { left: 100%; right: -90%; }
-  100% { left: 100%; right: -90%; }
-}
-@keyframes weave-indeterminate {
-  0%   { left: -35%; right: 100%; }
-  60%  { left: 100%; right: -90%; }
-  100% { left: 100%; right: -90%; }
-}
-@-webkit-keyframes weave-indeterminate-short {
-  0%   { left: -200%; right: 100%;  }
-  60%  { left: 107%;  right: -8%; }
-  100% { left: 107%;  right: -8%; }
-}
-@keyframes weave-indeterminate-short {
-  0%  { left: -200%; right: 100%; }
-  60% { left: 107%;  right: -8%; }
-  100% { left: 107%; right: -8%; }
 }

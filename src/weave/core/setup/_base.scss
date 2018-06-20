@@ -129,3 +129,18 @@ $weave-utilities--option: true !default;
 @mixin text-align {
   text-align: var(--text-align);
 }
+
+@mixin helper-text {
+  --font-size: var(--type-size-f1);
+  --line-height: var(--component-line-height-f1);
+  --color: var(--text-secondary-color);
+  font-weight: var(--font-weight-default);
+  @include color;
+  @include typeset;
+}
+
+@mixin secondary-text {
+  --color: var(--text-secondary-color);
+  @include color;
+  font-style: italic;
+}

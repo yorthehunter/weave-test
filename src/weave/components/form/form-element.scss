@@ -1,0 +1,32 @@
+.weave-form-element {
+  --display-as: flex;
+  --border-color: inherit;
+  --border-width: 0;
+  @include border;
+  @include display-as;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.weave-form-element--inline {
+  flex-direction: row;
+  align-items: center;
+}
+
+.weave-form-element.has-error {
+  .weave-helper-text,
+  .weave-input-label {
+    --color: var(--text-error-color);
+    @include color;
+  }
+
+  .weave-text-input {
+    --border-color: var(--border-error-color);
+    @include border;
+  }
+}
+
+.weave-form-element + .weave-form-element {
+  --my: var(--spacing-md);
+  @include my;
+}

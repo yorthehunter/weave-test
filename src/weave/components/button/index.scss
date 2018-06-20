@@ -74,9 +74,9 @@
   @include button;
 }
 
-.weave-button + .weave-button {
-  @include margin;
-  --ml: var(--spacing-sm);
+.weave-button:not(.weave-button--full-width) + .weave-button:not(.weave-button--full-width) {
+  @include mx;
+  --mx: var(--spacing-sm);
 }
 
 .weave-button--full-width {

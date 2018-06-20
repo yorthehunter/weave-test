@@ -1,0 +1,23 @@
+@import '../../core/index';
+
+@import "./form-element";
+@import "./input";
+
+.weave-helper-text {
+  --my: var(--sizing-sm);
+  --display-as: flex;
+  @include my;
+  @include display-as;
+}
+
+.weave-input-label {
+  @include helper-text;
+}
+
+.weave-form-help-text {
+  --my: var(--sizing-sm);
+  --display-as: flex;
+  @include helper-text;
+  @include my;
+  @include display-as;
+}

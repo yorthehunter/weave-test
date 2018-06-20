@@ -116,7 +116,7 @@
     @include weave-type($name);
   }
 
-  .weave-line-compact-#{$name} {
+  .weave-line-component-#{$name} {
     @include weave-line-height($name, false);
   }
 

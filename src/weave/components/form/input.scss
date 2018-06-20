@@ -1,0 +1,71 @@
+@mixin input-reset {
+  // Resets inputs as needed. This is *not* included in the global reset so that browser
+  // defaults can be used as a fallback.
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  font-family: inherit;
+
+  --font-size: var(--type-size-f3);
+  --line-height: var(--body-line-height-f3);
+  --border-width: 0;
+  --border-radius: 0;
+  --bg-color: transparent;
+
+  @include typeset;
+  @include border;
+  @include rounded;
+  @include bg;
+}
+
+.weave-input-field {
+  @include input-reset;
+  // This class styles for both single line <input type="text"> inputs as well
+  // as multi-line <textarea> inputs.
+  --border-width: 0 0 1px 0;
+  --border-color: var(--border-neutral-color);
+  --color: var(--text-secondary-color);
+
+  @include transition(box-shadow);
+  @include border;
+
+  margin-bottom:  -1px;
+  display: block;
+  width: 100%;
+
+  &:focus {
+    --border-color: var(--border-accent-color);
+    --color: var(--text-color);
+    outline: none;
+  }
+}
+
+.weave-input-field--contained {
+  // Allows input fields to be fully bordered
+  --border-width: 1px;
+  --px: var(--spacing-xs);
+  @include border;
+  @include px;
+}
+
+.weave-select_container {
+  // Wrap around a <select> to show the arrow indicator
+  position: relative;
+
+  &::after {
+    // This will append a dropdown arrow after the text of a <select> element
+    content: "▾";
+    position: absolute;
+    right: var(--spacing-md);
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  & > select {
+    // Attempts to fix a problem with Firefox that doesn't allow <select> height
+    // to be controlled by line height
+    line-height: normal;
+    padding-top: calc(1rem - 1px);
+    padding-bottom: calc(1rem - 1px);
+  }
+}
